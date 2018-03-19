@@ -22,3 +22,5 @@ custom:
 functions:
   price:
     handler: handler.price
+    events:
+      - schedule: cron(0 1 * * ? *)
