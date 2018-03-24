@@ -1,11 +1,12 @@
 {
   "scripts": {
     "deploy": "serverless deploy -v",
-    "invoke": "serverless invoke -f price -l",
-    "invoke:local": "serverless invoke local --function price"
+    "invoke": "serverless invoke -l -f",
+    "invoke:local": "serverless invoke local -f"
   },
   "dependencies": {
     "aws-sdk": "^2.209.0",
+    "axios": "^0.18.0",
     "lodash": "^4.17.5"
   },
   "devDependencies": {

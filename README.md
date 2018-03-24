@@ -8,7 +8,8 @@ $ npm install
 $ npm run deploy
 
 # 実行
-$ npm run invoke
+$ npm run invoke price
+$ npm run invoke fx
 ```
 
 # バケットの設定
