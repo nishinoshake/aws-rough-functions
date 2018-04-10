@@ -7,6 +7,7 @@ provider:
   profile: ${opt:profile, self:custom.defaultProfile}
   environment:
     BUCKET_NAME: ${self:custom.BUCKET_NAME}
+    CF_DIST_ID: ${self:custom.CF_DIST_ID}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -16,9 +17,14 @@ provider:
       Action:
         - "s3:*"
       Resource: "arn:aws:s3:::${self:custom.BUCKET_NAME}/*"
+    - Effect: Allow
+      Action:
+        - "cloudfront:*"
+      Resource: "*"
 custom:
   defaultProfile: default
   BUCKET_NAME: ${file(./serverless.env.yml):BUCKET_NAME} 
+  CF_DIST_ID: ${file(./serverless.env.yml):CF_DIST_ID} 
 functions:
   price:
     handler: handler.price
