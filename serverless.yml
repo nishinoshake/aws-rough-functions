@@ -28,5 +28,7 @@ custom:
 functions:
   price:
     handler: handler.price
+    memorySize: 512
+    timeout: 15
     events:
       - schedule: cron(0 1 * * ? *)
