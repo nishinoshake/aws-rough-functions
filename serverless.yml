@@ -30,7 +30,3 @@ functions:
     handler: handler.price
     events:
       - schedule: cron(0 1 * * ? *)
-  fx:
-    handler: handler.fx
-    events:
-      - schedule: cron(0 1 * * ? *)
