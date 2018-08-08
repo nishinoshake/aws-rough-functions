@@ -1,6 +1,7 @@
 const updatePrice = require('./aws/updatePrice')
 const invalidate = require('./aws/invalidate')
 const updateFx = require('./fx/updateFx')
+const slack = require('../../lib/slack')
 
 exports.main = async (event, context, callback) => {
   try {
@@ -9,6 +10,8 @@ exports.main = async (event, context, callback) => {
 
     callback(null, 'success')
   } catch (err) {
-    callback(err)
+    slack.send(`:warning: ALARM : price\n\n${err}`, () => {
+      callback(err)
+    })
   }
 }

@@ -5,6 +5,7 @@
     "invoke:local": "serverless invoke local -f"
   },
   "dependencies": {
+    "@slack/client": "^4.3.1",
     "aws-sdk": "^2.209.0",
     "axios": "^0.18.0",
     "lodash": "^4.17.5"
