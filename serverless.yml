@@ -6,8 +6,9 @@ provider:
   region: ap-northeast-1
   profile: ${opt:profile, self:custom.defaultProfile}
   environment:
-    BUCKET_NAME: ${self:custom.BUCKET_NAME}
-    CF_DIST_ID: ${self:custom.CF_DIST_ID}
+    BUCKET_NAME: ${file(./serverless.env.yml):BUCKET_NAME}
+    CF_DIST_ID: ${file(./serverless.env.yml):CF_DIST_ID}
+    SLACK_WEBHOOK_URL: ${file(./serverless.env.yml):SLACK_WEBHOOK_URL}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -16,18 +17,16 @@ provider:
     - Effect: "Allow"
       Action:
         - "s3:*"
-      Resource: "arn:aws:s3:::${self:custom.BUCKET_NAME}/*"
+      Resource: "arn:aws:s3:::${self:provider.environment.BUCKET_NAME}/*"
     - Effect: Allow
       Action:
         - "cloudfront:*"
       Resource: "*"
 custom:
   defaultProfile: default
-  BUCKET_NAME: ${file(./serverless.env.yml):BUCKET_NAME} 
-  CF_DIST_ID: ${file(./serverless.env.yml):CF_DIST_ID} 
 functions:
   price:
-    handler: handler.price
+    handler: functions/price/handler.main
     memorySize: 512
     timeout: 15
     events:
