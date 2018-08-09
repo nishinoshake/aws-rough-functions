@@ -8,12 +8,20 @@ module.exports = () => new Promise((resolve, reject) => {
   axios
     .get(FX_ENDPOINT)
     .then(res => {
+      const usdjpy = res.data.JPY
+
+      // 明らかにおかしい為替じゃないかだけ確認
+      if (usdjpy < 50 || usdjpy > 150) {
+        reject(new Error(`為替の値がなんだかおかしいです : ${usdjpy}`))
+        return
+      }
+
       s3.upload(
         {
           Bucket: BUCKET_NAME,
           Key: 'json/fx.json',
           Body: JSON.stringify({
-            usdjpy: parseFloat(res.data.JPY)
+            usdjpy: parseFloat(usdjpy)
           }),
           ContentType: 'application/json',
           CacheControl: 'no-store'
