@@ -9,7 +9,8 @@ provider:
     BASE_URL: ${file(./serverless.env.yml):BASE_URL}
     BUCKET_NAME: ${file(./serverless.env.yml):BUCKET_NAME}
     CF_DIST_ID: ${file(./serverless.env.yml):CF_DIST_ID}
-    SNS_VALIDATION_ARN: ${file(./serverless.env.yml):SNS_VALIDATION_ARN}
+    SNS_PRICE_UPDATE_ARN: ${file(./serverless.env.yml):SNS_PRICE_UPDATE_ARN}
+    SNS_PRICE_VALIDATION_ARN: ${file(./serverless.env.yml):SNS_PRICE_VALIDATION_ARN}
     SLACK_WEBHOOK_URL: ${file(./serverless.env.yml):SLACK_WEBHOOK_URL}
   iamRoleStatements:
     - Effect: Allow
@@ -24,22 +25,30 @@ provider:
       Action:
         - "cloudfront:*"
       Resource: "*"
+    - Effect: Allow
+      Action:
+        - "sns:Publish"
+      Resource:
+        - ${self:provider.environment.SNS_PRICE_UPDATE_ARN}
+        - ${self:provider.environment.SNS_PRICE_VALIDATION_ARN}
 custom:
   defaultProfile: default
 functions:
-  price:
-    handler: functions/price/handler.main
-    memorySize: 512
-    timeout: 15
-    events:
-      - schedule: cron(0 1 * * ? *)
   fx:
     handler: functions/fx/handler.main
     memorySize: 512
     timeout: 15
     events:
       - schedule: cron(0 1 * * ? *)
+  price:
+    handler: functions/price/handler.main
+    memorySize: 512
+    timeout: 15
+    events:
+      - sns: ${self:provider.environment.SNS_PRICE_UPDATE_ARN}
   validate:
     handler: functions/validate/handler.main
-    memorySize: 1024
-    timeout: 15
+    memorySize: 2048
+    timeout: 20
+    events:
+      - sns: ${self:provider.environment.SNS_PRICE_VALIDATION_ARN}

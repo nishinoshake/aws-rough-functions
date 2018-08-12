@@ -1,5 +1,4 @@
 const _ = require('lodash')
-// const fs = require('fs')
 
 const separate = targets => {
   let k = []
@@ -44,7 +43,7 @@ const getPrice = (pricing, service) =>
   new Promise((resolve, reject) => {
     const fetchPrice = (params, arr) => {
       pricing.getProducts(
-        Object.assign(params, { Filters: formatFilters(params.Filters) }),
+        {...params, Filters: formatFilters(params.Filters)},
         (err, data) => {
           if (err) {
             return reject(err)
@@ -55,7 +54,7 @@ const getPrice = (pricing, service) =>
 
           if (NextToken) {
             return fetchPrice(
-              Object.assign(params, { NextToken: NextToken }),
+              {...params, NextToken},
               priceLists
             )
           } else {
@@ -68,13 +67,11 @@ const getPrice = (pricing, service) =>
     fetchPrice(service.params, [])
   })
 
-const getPrices = (pricing, services) =>
-  new Promise((resolve, reject) => {
-    const kv = separate(services)
+const getPrices = async (pricing, services) => {
+  const kv = separate(services)
+  const data = await Promise.all(kv.v.map(v => getPrice(pricing, v)))
 
-    Promise.all(kv.v.map(v => getPrice(pricing, v)))
-      .then(data => resolve(combine(kv.k, data)))
-      .catch(err => reject(err))
-  })
+  return combine(kv.k, data)
+}
 
 module.exports = getPrices

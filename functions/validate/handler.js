@@ -10,12 +10,12 @@ exports.main = async (event, context, callback) => {
   const aboutConfig = config.about
   const serviceConfig = Object.keys(config).filter(name => name !== 'about').map(name => config[name])
 
+  let chrome
   let browser
 
   // 雑だけどpuppeteerのエラーも含めてまとめてcatch
   try {
-    await launchChrome()
-
+    chrome = await launchChrome()
     browser = await puppeteer.connect({
       browserWSEndpoint: (await CDP.Version()).webSocketDebuggerUrl
     })
@@ -44,6 +44,7 @@ exports.main = async (event, context, callback) => {
   }
 
   await browser.close()
+  await chrome.kill()
 
   callback(null)
 }
