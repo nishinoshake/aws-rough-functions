@@ -59,7 +59,6 @@ const getPrice = (pricing, service) =>
               priceLists
             )
           } else {
-            // fs.writeFileSync(`./tmp/${service.params.ServiceCode}.json`, JSON.stringify(data))
             return resolve(service.parse(priceLists))
           }
         }

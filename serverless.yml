@@ -6,8 +6,10 @@ provider:
   region: ap-northeast-1
   profile: ${opt:profile, self:custom.defaultProfile}
   environment:
+    BASE_URL: ${file(./serverless.env.yml):BASE_URL}
     BUCKET_NAME: ${file(./serverless.env.yml):BUCKET_NAME}
     CF_DIST_ID: ${file(./serverless.env.yml):CF_DIST_ID}
+    SNS_VALIDATION_ARN: ${file(./serverless.env.yml):SNS_VALIDATION_ARN}
     SLACK_WEBHOOK_URL: ${file(./serverless.env.yml):SLACK_WEBHOOK_URL}
   iamRoleStatements:
     - Effect: Allow
@@ -31,3 +33,13 @@ functions:
     timeout: 15
     events:
       - schedule: cron(0 1 * * ? *)
+  fx:
+    handler: functions/fx/handler.main
+    memorySize: 512
+    timeout: 15
+    events:
+      - schedule: cron(0 1 * * ? *)
+  validate:
+    handler: functions/validate/handler.main
+    memorySize: 1024
+    timeout: 15
