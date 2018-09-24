@@ -4,7 +4,7 @@ const CDP = require('chrome-remote-interface')
 const { sendWarning } = require('../../lib/slack')
 const config = require('./config')
 const getPriceAfterInput = require('./getPriceAfterInput')
-const BASE_URL = process.env.BASE_URL
+const { PRODUCTION_VALIDATE_ORIGIN, LOCAL_VALIDATE_ORIGIN, LOCAL_CHROME_PATH, IS_LOCAL } = process.env
 
 exports.main = async (event, context, callback) => {
   const aboutConfig = config.about
@@ -15,13 +15,20 @@ exports.main = async (event, context, callback) => {
 
   // 雑だけどpuppeteerのエラーも含めてまとめてcatch
   try {
-    chrome = await launchChrome()
+    const chromeOptoin = IS_LOCAL
+      ? { chromePath: LOCAL_CHROME_PATH }
+      : {}
+
+    chrome = await launchChrome(chromeOptoin)
     browser = await puppeteer.connect({
       browserWSEndpoint: (await CDP.Version()).webSocketDebuggerUrl
     })
 
+    const baseUrl = IS_LOCAL
+      ? LOCAL_VALIDATE_ORIGIN
+      : PRODUCTION_VALIDATE_ORIGIN
     const aboutPage = await browser.newPage()
-    const aboutUrl = `${BASE_URL}${aboutConfig.path}`
+    const aboutUrl = `${baseUrl}${aboutConfig.path}`
     const usdjpy = await getPriceAfterInput(aboutPage, aboutUrl, aboutConfig)
 
     if (usdjpy < aboutConfig.range.min || usdjpy > aboutConfig.range.max) {
@@ -29,7 +36,7 @@ exports.main = async (event, context, callback) => {
     }
 
     await Promise.all(serviceConfig.map(async service => {
-      const serviceUrl = `${BASE_URL}${service.path}`
+      const serviceUrl = `${baseUrl}${service.path}`
       const servicePage = await browser.newPage()
       const price = await getPriceAfterInput(servicePage, serviceUrl, service)
       const priceInUsd = price / usdjpy
