@@ -8,15 +8,10 @@ provider:
   environment:
     FX_ENDPOINT: "https://api.aoikujira.com/kawase/json/usd"
     BUCKET_NAME: ${file(./serverless.env.yml):BUCKET_NAME}
-    CF_DIST_ID: ${file(./serverless.env.yml):CF_DIST_ID}
     SNS_PRICE_UPDATE_ARN: ${file(./serverless.env.yml):SNS_PRICE_UPDATE_ARN}
-    SNS_PRICE_VALIDATION_ARN: ${file(./serverless.env.yml):SNS_PRICE_VALIDATION_ARN}
     SLACK_WEBHOOK_URL: ${file(./serverless.env.yml):SLACK_WEBHOOK_URL}
-    PRODUCTION_VALIDATE_ORIGIN: ${file(./serverless.env.yml):PRODUCTION_VALIDATE_ORIGIN}
     LOCAL_PRICE_PATH: ${file(./serverless.env.yml):LOCAL_PRICE_PATH, ''}
     LOCAL_FX_PATH: ${file(./serverless.env.yml):LOCAL_FX_PATH, ''}
-    LOCAL_VALIDATE_ORIGIN: ${file(./serverless.env.yml):LOCAL_VALIDATE_ORIGIN, ''}
-    LOCAL_CHROME_PATH: ${file(./serverless.env.yml):LOCAL_CHROME_PATH, ''}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -35,7 +30,6 @@ provider:
         - "sns:Publish"
       Resource:
         - ${self:provider.environment.SNS_PRICE_UPDATE_ARN}
-        - ${self:provider.environment.SNS_PRICE_VALIDATION_ARN}
 custom:
   defaultProfile: default
 functions:
@@ -51,9 +45,3 @@ functions:
     timeout: 15
     events:
       - sns: ${self:provider.environment.SNS_PRICE_UPDATE_ARN}
-  validate:
-    handler: functions/validate/handler.main
-    memorySize: 2048
-    timeout: 20
-    events:
-      - sns: ${self:provider.environment.SNS_PRICE_VALIDATION_ARN}
