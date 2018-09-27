@@ -6,14 +6,10 @@
     "invoke:local": "serverless invoke local -f"
   },
   "dependencies": {
-    "@serverless-chrome/lambda": "^1.0.0-54",
     "@slack/client": "^4.3.1",
     "aws-sdk": "^2.209.0",
     "axios": "^0.18.0",
-    "chrome-launcher": "^0.10.4",
-    "chrome-remote-interface": "^0.26.1",
-    "lodash": "^4.17.5",
-    "puppeteer": "^1.7.0"
+    "lodash": "^4.17.5"
   },
   "devDependencies": {
     "eslint": "^4.18.2",
