@@ -1,4 +1,6 @@
+const fs = require('fs')
 const _ = require('lodash')
+const { IS_LOCAL } = process.env
 
 const separate = targets => {
   let k = []
@@ -58,6 +60,9 @@ const getPrice = (pricing, service) =>
               priceLists
             )
           } else {
+            if (IS_LOCAL) {
+              fs.writeFileSync(`${__dirname}/../../json/${params.ServiceCode}.json`, JSON.stringify(priceLists))
+            }
             return resolve(service.parse(priceLists))
           }
         }

@@ -22,6 +22,4 @@ $ npm run invoke validate
 BUCKET_NAME: 'aws.noplan.cc'
 SNS_PRICE_UPDATE_ARN: 'arn:aws:sns:hoge'
 SLACK_WEBHOOK_URL: 'https://hooks.slack.com/hoge'
-LOCAL_PRICE_PATH: '/path/to/local/price.json'
-LOCAL_FX_PATH: '/path/to/local/fx.json'
 ```

@@ -12,8 +12,6 @@ provider:
     SLACK_WEBHOOK_URL: ${file(./serverless.env.yml):SLACK_WEBHOOK_URL}
     CIRCLE_API_KEY: ${file(./serverless.env.yml):CIRCLE_API_KEY}
     CIRCLE_DEPLOY_ENDPOINT: ${file(./serverless.env.yml):CIRCLE_DEPLOY_ENDPOINT}
-    LOCAL_PRICE_PATH: ${file(./serverless.env.yml):LOCAL_PRICE_PATH, ''}
-    LOCAL_FX_PATH: ${file(./serverless.env.yml):LOCAL_FX_PATH, ''}
   iamRoleStatements:
     - Effect: Allow
       Action:
