@@ -5,10 +5,6 @@ const parseInstanceType = data => {
   return data.product.attributes.instanceType
 }
 
-const parseAttributes = data => {
-  return data.product.attributes
-}
-
 const parseInstances = (data, options) => {
   let obj = {}
 
@@ -22,7 +18,7 @@ const parseInstances = (data, options) => {
 
     obj[prefix].push({
       price: parseFirstPrice(item),
-      attributes: parseAttributes(item)
+      instanceType
     })
   })
 
