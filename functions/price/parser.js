@@ -22,9 +22,19 @@ const parseInstances = (data, options) => {
     })
   })
 
-  Object.keys(obj).forEach(prefix => {
+  const prefixes = Object.keys(obj)
+
+  // 未知のインスタンス
+  prefixes.forEach(prefix => {
     if (!options.order.includes(prefix)) {
-      sendWarning(`未知機械発見 : ${prefix}`)
+      sendWarning(`未知のインスタンスを発見 : ${prefix}`)
+    }
+  })
+
+  // 過去のインスタンス
+  options.order.forEach(prefix => {
+    if (!prefixes.includes(prefix)) {
+      sendWarning(`このインスタンスは過去のものになったみたいです : ${prefix}`)
     }
   })
 
