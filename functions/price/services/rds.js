@@ -3,7 +3,6 @@ const { parseInstances, parseFirstPrice } = require('../parser')
 const rdsFilter = {
   location: 'Asia Pacific (Tokyo)',
   currentGeneration: 'Yes',
-  instanceFamily: 'General purpose',
   storage: 'EBS only',
   deploymentOption: 'Single-AZ'
 }
@@ -19,7 +18,7 @@ module.exports = {
         }
       },
       parse: priceList =>
-        parseInstances(priceList, { index: 1, order: ['t2', 'm4', 'm5'] })
+        parseInstances(priceList, { index: 1, order: ['t2', 'm4', 'm5', 'r4'] })
     },
     MariaDB: {
       params: {
@@ -30,7 +29,7 @@ module.exports = {
         }
       },
       parse: priceList =>
-        parseInstances(priceList, { index: 1, order: ['t2', 'm4', 'm5'] })
+        parseInstances(priceList, { index: 1, order: ['t2', 'm4', 'm5', 'r4'] })
     },
     PostgreSQL: {
       params: {
@@ -41,7 +40,7 @@ module.exports = {
         }
       },
       parse: priceList =>
-        parseInstances(priceList, { index: 1, order: ['t2', 'm4'] })
+        parseInstances(priceList, { index: 1, order: ['t2', 'm4', 'r4'] })
     }
   },
   storage: {
