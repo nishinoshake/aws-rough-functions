@@ -7,20 +7,21 @@ module.exports = {
         ServiceCode: 'AmazonEC2',
         Filters: {
           location: 'Asia Pacific (Tokyo)',
-          groupDescription: 'Standard Elastic Load Balancer'
+          usagetype: 'APN1-LoadBalancerUsage',
+          operation: 'LoadBalancing:Application'
         }
       },
       parse: priceList => parseFirstPrice(priceList[0])
     }
   },
-  transfer: {
+  lcu: {
     price: {
       params: {
         ServiceCode: 'AmazonEC2',
         Filters: {
           location: 'Asia Pacific (Tokyo)',
-          groupDescription: 'Data processed by Elastic Load Balancer',
-          usagetype: 'APN1-DataProcessing-Bytes'
+          usagetype: 'APN1-LCUUsage',
+          operation: 'LoadBalancing:Application'
         }
       },
       parse: priceList => parseFirstPrice(priceList[0])

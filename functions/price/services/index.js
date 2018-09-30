@@ -1,7 +1,9 @@
 module.exports = {
   ec2: require('./ec2'),
   elasticache: require('./elasticache'),
-  elb: require('./elb'),
+  clb: require('./clb'),
+  alb: require('./alb'),
+  nlb: require('./nlb'),
   ebs: require('./ebs'),
   route53: require('./route53'),
   cloudfront: require('./cloudfront'),
