@@ -12,7 +12,7 @@ module.exports = {
       }
     },
     parse: priceList => {
-      return parseInstances(priceList, { index: 1, order: ['t', 'm'] })
+      return parseInstances(priceList, { index: 1, order: ['t2', 'm3', 'm4'] })
     }
   }
 }

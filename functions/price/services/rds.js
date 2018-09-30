@@ -19,7 +19,7 @@ module.exports = {
         }
       },
       parse: priceList =>
-        parseInstances(priceList, { index: 1, order: ['t', 'm'] })
+        parseInstances(priceList, { index: 1, order: ['t2', 'm4', 'm5'] })
     },
     MariaDB: {
       params: {
@@ -30,7 +30,7 @@ module.exports = {
         }
       },
       parse: priceList =>
-        parseInstances(priceList, { index: 1, order: ['t', 'm'] })
+        parseInstances(priceList, { index: 1, order: ['t2', 'm4', 'm5'] })
     },
     PostgreSQL: {
       params: {
@@ -41,7 +41,7 @@ module.exports = {
         }
       },
       parse: priceList =>
-        parseInstances(priceList, { index: 1, order: ['t', 'm'] })
+        parseInstances(priceList, { index: 1, order: ['t2', 'm4'] })
     }
   },
   storage: {

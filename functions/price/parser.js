@@ -1,4 +1,5 @@
 const _ = require('lodash')
+const { sendWarning } = require('../../lib/slack')
 
 const parseInstanceType = data => {
   return data.product.attributes.instanceType
@@ -13,7 +14,7 @@ const parseInstances = (data, options) => {
 
   data.forEach(item => {
     const instanceType = parseInstanceType(item)
-    const prefix = instanceType.split('.')[options.index].slice(0, 1)
+    const prefix = instanceType.split('.')[options.index]
 
     if (!obj[prefix]) {
       obj[prefix] = []
@@ -23,6 +24,12 @@ const parseInstances = (data, options) => {
       price: parseFirstPrice(item),
       attributes: parseAttributes(item)
     })
+  })
+
+  Object.keys(obj).forEach(prefix => {
+    if (!options.order.includes(prefix)) {
+      sendWarning(`未知機械発見 : ${prefix}`)
+    }
   })
 
   return _.flatten(options.order.map(name => _.sortBy(obj[name], ['price'])))
