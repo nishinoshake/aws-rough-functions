@@ -1,6 +1,6 @@
 const updatePrice = require('./updatePrice')
-const { sendWarning } = require('../../lib/slack')
-const { deploy } = require('../../lib/circleci')
+const { sendWarning } = require('../../../lib/slack')
+const { deploy } = require('../../../lib/circleci')
 const { IS_LOCAL } = process.env
 
 exports.main = async (event, context, callback) => {

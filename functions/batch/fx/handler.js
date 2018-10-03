@@ -1,6 +1,6 @@
 const updateFx = require('./updateFx')
-const { publish } = require('../../lib/sns')
-const { sendWarning } = require('../../lib/slack')
+const { publish } = require('../../../lib/sns')
+const { sendWarning } = require('../../../lib/slack')
 
 const { SNS_PRICE_UPDATE_ARN, IS_LOCAL } = process.env
 

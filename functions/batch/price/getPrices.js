@@ -61,7 +61,7 @@ const getPrice = (pricing, service) =>
             )
           } else {
             if (IS_LOCAL) {
-              fs.writeFileSync(`${__dirname}/../../json/${params.ServiceCode}.json`, JSON.stringify(priceLists))
+              fs.writeFileSync(`${__dirname}/../../../json/${params.ServiceCode}.json`, JSON.stringify(priceLists))
             }
             return resolve(service.parse(priceLists))
           }

@@ -34,13 +34,13 @@ custom:
   defaultProfile: default
 functions:
   fx:
-    handler: functions/fx/handler.main
+    handler: functions/batch/fx/handler.main
     memorySize: 512
     timeout: 15
     events:
       - schedule: cron(0 1 * * ? *)
   price:
-    handler: functions/price/handler.main
+    handler: functions/batch/price/handler.main
     memorySize: 512
     timeout: 15
     events:

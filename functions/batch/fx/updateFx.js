@@ -1,6 +1,6 @@
 const fs = require('fs')
 const axios = require('axios')
-const { uploadJson } = require('../../lib/s3')
+const { uploadJson } = require('../../../lib/s3')
 const { BUCKET_NAME, FX_ENDPOINT, IS_LOCAL } = process.env
 
 module.exports = async () => {
@@ -13,7 +13,7 @@ module.exports = async () => {
   }
 
   if (IS_LOCAL) {
-    fs.writeFileSync(`${__dirname}/../../json/fx.json`, JSON.stringify({usdjpy: parseFloat(usdjpy)}))
+    fs.writeFileSync(`${__dirname}/../../../json/fx.json`, JSON.stringify({usdjpy: parseFloat(usdjpy)}))
   } else {
     await uploadJson(BUCKET_NAME, 'json/fx.json', {usdjpy: parseFloat(usdjpy)})
   }
