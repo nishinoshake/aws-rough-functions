@@ -1,4 +1,4 @@
-service: aws-rough-batch
+service: aws-rough-functions
 
 provider:
   name: aws
@@ -30,8 +30,15 @@ provider:
         - "sns:Publish"
       Resource:
         - ${self:provider.environment.SNS_PRICE_UPDATE_ARN}
+plugins:
+  - serverless-domain-manager
 custom:
   defaultProfile: default
+  customDomain:
+    domainName: aws-api.noplan.cc
+    basePath: ''
+    stage: production
+    createRoute53Record: true
 functions:
   fx:
     handler: functions/batch/fx/handler.main
@@ -45,3 +52,17 @@ functions:
     timeout: 15
     events:
       - sns: ${self:provider.environment.SNS_PRICE_UPDATE_ARN}
+  getZ:
+    handler: functions/api/z/get.main
+    events:
+      - http:
+          path: /z/{hash}
+          method: get
+          cors: true
+  postZ:
+    handler: functions/api/z/post.main
+    events:
+      - http:
+          path: /z
+          method: post
+          cors: true
