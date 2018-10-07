@@ -72,9 +72,18 @@ const getPrice = (pricing, service) =>
     fetchPrice(service.params, [])
   })
 
+const wait = timeout => new Promise(resolve => {
+  setTimeout(() => {
+    resolve()
+  }, timeout)
+})
+
 const getPrices = async (pricing, services) => {
   const kv = separate(services)
-  const data = await Promise.all(kv.v.map(v => getPrice(pricing, v)))
+  const data = await Promise.all(kv.v.map(async (v, index) => {
+    await wait(index * 300)
+    return getPrice(pricing, v)
+  }))
 
   return combine(kv.k, data)
 }
