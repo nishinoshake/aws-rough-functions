@@ -4,8 +4,8 @@
     "deploy:production": "serverless deploy -v --stage production",
     "invoke": "serverless invoke -l -f",
     "invoke:local": "serverless invoke local -f",
-    "invoke:dev": "serverless invoke -l -f --stage dev",
-    "invoke:production": "serverless invoke -l -f --stage production"
+    "invoke:dev": "serverless invoke --stage dev -l  -f",
+    "invoke:production": "serverless invoke --stage production -l -f"
   },
   "dependencies": {
     "@slack/client": "^4.3.1",
