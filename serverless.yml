@@ -3,6 +3,7 @@ service: aws-rough-functions
 provider:
   name: aws
   runtime: nodejs8.10
+  stage: dev
   region: ap-northeast-1
   profile: ${opt:profile, self:custom.defaultProfile}
   environment:
@@ -34,24 +35,33 @@ plugins:
   - serverless-domain-manager
 custom:
   defaultProfile: default
+  stage: "${opt:stage, self:provider.stage}"
   customDomain:
-    domainName: aws-api.noplan.cc
+    domainName: ${self:custom.${self:custom.stage}.domain}
     basePath: ''
-    stage: production
+    stage: ${self:custom.stage}
     createRoute53Record: true
+  dev:
+    domain: dev-aws-api.noplan.cc
+    priceSchedule:
+    fxEvents:
+  production:
+    domain: aws-api.noplan.cc
+    priceSchedule: cron(0 1 * * ? *)
+    fxEvents: ${self:provider.environment.SNS_PRICE_UPDATE_ARN}
 functions:
   fx:
     handler: functions/batch/fx/handler.main
     memorySize: 512
     timeout: 15
     events:
-      - schedule: cron(0 1 * * ? *)
+      - schedule: ${self:custom.${self:custom.stage}.priceSchedule}
   price:
     handler: functions/batch/price/handler.main
     memorySize: 512
     timeout: 15
     events:
-      - sns: ${self:provider.environment.SNS_PRICE_UPDATE_ARN}
+      - sns: ${self:custom.${self:custom.stage}.fxEvents}
   getZ:
     handler: functions/api/z/get.main
     events:
