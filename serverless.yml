@@ -11,8 +11,8 @@ provider:
     BUCKET_NAME: ${file(./serverless.env.yml):BUCKET_NAME}
     SNS_PRICE_UPDATE_ARN: ${file(./serverless.env.yml):SNS_PRICE_UPDATE_ARN}
     SLACK_WEBHOOK_URL: ${file(./serverless.env.yml):SLACK_WEBHOOK_URL}
-    CIRCLE_API_KEY: ${file(./serverless.env.yml):CIRCLE_API_KEY}
-    CIRCLE_DEPLOY_ENDPOINT: ${file(./serverless.env.yml):CIRCLE_DEPLOY_ENDPOINT}
+    CIRCLE_API_TOKEN: ${file(./serverless.env.yml):CIRCLE_API_TOKEN}
+    CIRCLE_BUILD_ENDPOINT: ${file(./serverless.env.yml):CIRCLE_BUILD_ENDPOINT}
   iamRoleStatements:
     - Effect: Allow
       Action:
