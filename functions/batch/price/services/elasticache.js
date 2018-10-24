@@ -11,7 +11,7 @@ module.exports = {
       }
     },
     parse: priceList => {
-      return parseInstances(priceList, { index: 1, order: ['t2', 'm3', 'm4', 'r3', 'r4'] })
+      return parseInstances(priceList, { name: 'ElastiCache', index: 1, order: ['t2', 'm3', 'm4', 'r3', 'r4'] })
     }
   }
 }

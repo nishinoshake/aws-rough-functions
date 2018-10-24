@@ -27,14 +27,14 @@ const parseInstances = (data, options) => {
   // 未知のインスタンス
   prefixes.forEach(prefix => {
     if (!options.order.includes(prefix)) {
-      sendWarning(`未知のインスタンスを発見 : ${prefix}`)
+      sendWarning(`${options.name} => 未知のインスタンスを発見 : ${prefix}`)
     }
   })
 
   // 過去のインスタンス
   options.order.forEach(prefix => {
     if (!prefixes.includes(prefix)) {
-      sendWarning(`このインスタンスは過去のものになったみたいです : ${prefix}`)
+      sendWarning(`${options.name} => このインスタンスは過去のものになったみたいです : ${prefix}`)
     }
   })
 
