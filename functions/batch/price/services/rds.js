@@ -18,7 +18,7 @@ module.exports = {
         }
       },
       parse: priceList =>
-        parseInstances(priceList, { index: 1, order: ['t2', 'm4', 'm5', 'r4'] })
+        parseInstances(priceList, { name: 'RDS MySQL', index: 1, order: ['t2', 'm5', 'm4', 'r4'] })
     },
     MariaDB: {
       params: {
@@ -29,7 +29,7 @@ module.exports = {
         }
       },
       parse: priceList =>
-        parseInstances(priceList, { index: 1, order: ['t2', 'm4', 'm5', 'r4'] })
+        parseInstances(priceList, { name: 'RDS MariaDB', index: 1, order: ['t2', 'm5', 'm4', 'r4'] })
     },
     PostgreSQL: {
       params: {
@@ -40,7 +40,7 @@ module.exports = {
         }
       },
       parse: priceList =>
-        parseInstances(priceList, { index: 1, order: ['t2', 'm4', 'r4'] })
+        parseInstances(priceList, { name: 'RDS PostgreSQL', index: 1, order: ['t2', 'm4', 'r4'] })
     }
   },
   storage: {

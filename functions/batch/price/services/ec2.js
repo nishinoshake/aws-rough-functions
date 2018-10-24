@@ -14,6 +14,6 @@ module.exports = {
       }
     },
     parse: priceList =>
-      parseInstances(priceList, { name: 'EC2', index: 0, order: ['t2', 't3', 'm4', 'm5', 'c4', 'c5', 'r4', 'r5', 'p2', 'p3', 'g3', 'g3s'] })
+      parseInstances(priceList, { name: 'EC2', index: 0, order: ['t3', 't2', 'm5', 'm4', 'c5', 'c4', 'r5', 'r4', 'p3', 'p2', 'g3', 'g3s'] })
   }
 }
