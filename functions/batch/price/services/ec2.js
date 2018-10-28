@@ -8,6 +8,7 @@ module.exports = {
         location: 'Asia Pacific (Tokyo)',
         operatingSystem: 'Linux',
         currentGeneration: 'Yes',
+        capacitystatus: 'Used',
         preInstalledSw: 'NA',
         storage: 'EBS only',
         tenancy: 'Shared'
