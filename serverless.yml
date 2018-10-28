@@ -43,25 +43,25 @@ custom:
     createRoute53Record: true
   dev:
     domain: dev-aws-api.noplan.cc
-    priceSchedule:
-    fxEvents:
+    priceScheduleEnabled: false
   production:
     domain: aws-api.noplan.cc
-    priceSchedule: cron(0 1 * * ? *)
-    fxEvents: ${self:provider.environment.SNS_PRICE_UPDATE_ARN}
+    priceScheduleEnabled: true
 functions:
   fx:
     handler: functions/batch/fx/handler.main
     memorySize: 512
     timeout: 15
     events:
-      - schedule: ${self:custom.${self:custom.stage}.priceSchedule}
+      - schedule:
+          rate: cron(0 1 * * ? *)
+          enables: ${self:custom.${self:custom.stage}.priceScheduleEnabled}
   price:
     handler: functions/batch/price/handler.main
     memorySize: 512
     timeout: 15
     events:
-      - sns: ${self:custom.${self:custom.stage}.fxEvents}
+      - sns: ${self:provider.environment.SNS_PRICE_UPDATE_ARN}
   getZ:
     handler: functions/api/z/get.main
     events:
