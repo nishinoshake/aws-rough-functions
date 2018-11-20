@@ -40,7 +40,7 @@ module.exports = {
         }
       },
       parse: priceList =>
-        parseInstances(priceList, { name: 'RDS PostgreSQL', index: 1, order: ['t2', 'm4', 'r4'] })
+        parseInstances(priceList, { name: 'RDS PostgreSQL', index: 1, order: ['t2', 'm5', 'm4', 'r4'] })
     }
   },
   storage: {
