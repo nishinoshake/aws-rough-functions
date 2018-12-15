@@ -71,7 +71,21 @@ const parseFirstPrice = data => {
   )
 }
 
+const parseCache = data => {
+  const items = data.map(item => ({
+    cacheMemorySizeGb: parseFloat(item.product.attributes.cacheMemorySizeGb),
+    price: parseFirstPrice(item)
+  }))
+
+  return _.orderBy(items, ['cacheMemorySizeGb'], ['asc'])
+    .map(({cacheMemorySizeGb, price}) => ({
+      cacheMemorySizeGb: cacheMemorySizeGb.toString(),
+      price
+    }))
+}
+
 module.exports = {
+  parseCache,
   parseInstances,
   parseRange,
   parsePrices,

@@ -7,6 +7,7 @@ module.exports = {
   ebs: require('./ebs'),
   route53: require('./route53'),
   cloudfront: require('./cloudfront'),
+  apigateway: require('./apigateway'),
   s3: require('./s3'),
   rds: require('./rds'),
   aurora: require('./aurora'),
