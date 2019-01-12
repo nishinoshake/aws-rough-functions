@@ -3,24 +3,28 @@ const { parseFirstPrice } = require('../parser')
 
 module.exports = {
   cpu: {
-    params: {
-      ServiceCode: 'AmazonECS',
-      Filters: {
-        location: 'Asia Pacific (Tokyo)',
-        usagetype: 'APN1-Fargate-vCPU-Hours:perCPU'
-      }
-    },
-    parse: priceList => parseFirstPrice(priceList[0])
+    price: {
+      params: {
+        ServiceCode: 'AmazonECS',
+        Filters: {
+          location: 'Asia Pacific (Tokyo)',
+          usagetype: 'APN1-Fargate-vCPU-Hours:perCPU'
+        }
+      },
+      parse: priceList => parseFirstPrice(priceList[0])
+    }
   },
   memory: {
-    params: {
-      ServiceCode: 'AmazonECS',
-      Filters: {
-        location: 'Asia Pacific (Tokyo)',
-        usagetype: 'APN1-Fargate-GB-Hours'
-      }
-    },
-    parse: priceList => parseFirstPrice(priceList[0])
+    price: {
+      params: {
+        ServiceCode: 'AmazonECS',
+        Filters: {
+          location: 'Asia Pacific (Tokyo)',
+          usagetype: 'APN1-Fargate-GB-Hours'
+        }
+      },
+      parse: priceList => parseFirstPrice(priceList[0])
+    }
   },
   pair: {
     values: {
