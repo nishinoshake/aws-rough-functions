@@ -1,5 +1,6 @@
 module.exports = {
   ec2: require('./ec2'),
+  fargate: require('./fargate'),
   elasticache: require('./elasticache'),
   clb: require('./clb'),
   alb: require('./alb'),

@@ -10,7 +10,7 @@ const separate = targets => {
     Object.keys(obj).forEach(name => {
       const str = stack ? `${stack}.${name}` : name
 
-      if (obj[name].parse) {
+      if (obj[name].parse || obj[name].values) {
         k.push(str)
         v.push(obj[name])
       } else {
@@ -80,7 +80,12 @@ const wait = timeout => new Promise(resolve => {
 
 const getPrices = async (pricing, services) => {
   const kv = separate(services)
+
   const data = await Promise.all(kv.v.map(async (v, index) => {
+    if (v.values) {
+      return v.values
+    }
+
     await wait(index * 300)
     return getPrice(pricing, v)
   }))
