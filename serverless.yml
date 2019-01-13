@@ -13,6 +13,8 @@ provider:
     SLACK_WEBHOOK_URL: ${file(./serverless.env.yml):SLACK_WEBHOOK_URL}
     CIRCLE_API_TOKEN: ${file(./serverless.env.yml):CIRCLE_API_TOKEN}
     CIRCLE_BUILD_ENDPOINT: ${file(./serverless.env.yml):CIRCLE_BUILD_ENDPOINT}
+  apiGateway:
+    minimumCompressionSize: 512
   iamRoleStatements:
     - Effect: Allow
       Action:
