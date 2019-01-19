@@ -1,4 +1,4 @@
-const { parseFirstPrice } = require('../parser')
+const { parseFirstPrice } = require('../lib/parser')
 
 module.exports = {
   instance: {
@@ -8,20 +8,20 @@ module.exports = {
         Filters: {
           location: 'Asia Pacific (Tokyo)',
           usagetype: 'APN1-LoadBalancerUsage',
-          operation: 'LoadBalancing:Network'
+          operation: 'LoadBalancing'
         }
       },
       parse: priceList => parseFirstPrice(priceList[0])
     }
   },
-  lcu: {
+  transfer: {
     price: {
       params: {
         ServiceCode: 'AmazonEC2',
         Filters: {
           location: 'Asia Pacific (Tokyo)',
-          usagetype: 'APN1-LCUUsage',
-          operation: 'LoadBalancing:Network'
+          usagetype: 'APN1-DataProcessing-Bytes',
+          operation: 'LoadBalancing'
         }
       },
       parse: priceList => parseFirstPrice(priceList[0])

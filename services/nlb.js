@@ -1,4 +1,4 @@
-const { parseFirstPrice } = require('../parser')
+const { parseFirstPrice } = require('../lib/parser')
 
 module.exports = {
   instance: {
@@ -8,7 +8,7 @@ module.exports = {
         Filters: {
           location: 'Asia Pacific (Tokyo)',
           usagetype: 'APN1-LoadBalancerUsage',
-          operation: 'LoadBalancing:Application'
+          operation: 'LoadBalancing:Network'
         }
       },
       parse: priceList => parseFirstPrice(priceList[0])
@@ -21,7 +21,7 @@ module.exports = {
         Filters: {
           location: 'Asia Pacific (Tokyo)',
           usagetype: 'APN1-LCUUsage',
-          operation: 'LoadBalancing:Application'
+          operation: 'LoadBalancing:Network'
         }
       },
       parse: priceList => parseFirstPrice(priceList[0])

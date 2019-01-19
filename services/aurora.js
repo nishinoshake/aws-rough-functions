@@ -1,4 +1,4 @@
-const { parseInstances, parseFirstPrice } = require('../parser')
+const { parseInstances, parseFirstPrice } = require('../lib/parser')
 
 const auroraFilter = {
   location: 'Asia Pacific (Tokyo)',

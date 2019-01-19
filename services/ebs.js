@@ -1,4 +1,4 @@
-const { parseFirstPrice } = require('../parser')
+const { parseFirstPrice } = require('../lib/parser')
 
 module.exports = {
   gp2: {

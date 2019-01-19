@@ -1,4 +1,4 @@
-const { parseRange, parseCache } = require('../parser')
+const { parseRange, parseCache } = require('../lib/parser')
 
 module.exports = {
   request: {

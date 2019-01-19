@@ -51,7 +51,7 @@ custom:
     priceScheduleEnabled: true
 functions:
   fx:
-    handler: functions/batch/fx/handler.main
+    handler: functions/batch/fx.main
     memorySize: 512
     timeout: 15
     events:
@@ -59,7 +59,7 @@ functions:
           rate: cron(0 1 * * ? *)
           enables: ${self:custom.${self:custom.stage}.priceScheduleEnabled}
   price:
-    handler: functions/batch/price/handler.main
+    handler: functions/batch/price.main
     memorySize: 512
     timeout: 15
     events:

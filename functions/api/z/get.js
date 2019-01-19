@@ -1,6 +1,6 @@
-const { fetchJson } = require('../../../lib/s3')
-const { isValidHash } = require('../helpers/validator')
-const { createResponse, createClientErrorResponse, createServerErrorResponse } = require('../helpers/response')
+const { fetchJson } = require('../../../lib/aws/s3')
+const { isValidHash } = require('../../../lib/validator')
+const { createResponse, createClientErrorResponse, createServerErrorResponse } = require('../../../lib/response')
 const { BUCKET_NAME } = process.env
 
 exports.main = async (event, context, callback) => {

@@ -1,4 +1,4 @@
-const { parseFirstPrice, parsePrices } = require('../parser')
+const { parseFirstPrice, parsePrices } = require('../lib/parser')
 
 module.exports = {
   request: {

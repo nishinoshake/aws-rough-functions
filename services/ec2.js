@@ -1,4 +1,4 @@
-const { parseInstances } = require('../parser')
+const { parseInstances } = require('../lib/parser')
 
 module.exports = {
   instance: {
