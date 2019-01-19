@@ -3,6 +3,16 @@ module.exports = {
   env: {
     node: true
   },
+  globals: {
+    jest: true,
+    describe: true,
+    expect: true,
+    test: true,
+    beforeAll: true,
+    beforeEach: true,
+    afterAll: true,
+    afterEach: true
+  },
   extends: [
     'standard',
     'plugin:prettier/recommended'
