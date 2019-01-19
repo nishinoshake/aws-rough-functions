@@ -1,5 +1,5 @@
 const axios = require('axios')
-const fetchFx = require('../../../../lib/fetchFx')
+const fetchFx = require('../../lib/fetchFx')
 
 jest.mock('axios')
 
