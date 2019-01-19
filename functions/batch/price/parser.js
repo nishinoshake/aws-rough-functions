@@ -52,7 +52,9 @@ const parseRange = data => {
 }
 
 const parsePriceDimensions = data => {
-  const { terms: { OnDemand } } = data
+  const {
+    terms: { OnDemand }
+  } = data
 
   return OnDemand[Object.keys(OnDemand)[0]].priceDimensions
 }
@@ -66,9 +68,7 @@ const parsePrices = data => {
 const parseFirstPrice = data => {
   const priceDimensions = parsePriceDimensions(data)
 
-  return parseFloat(
-    priceDimensions[Object.keys(priceDimensions)[0]].pricePerUnit.USD
-  )
+  return parseFloat(priceDimensions[Object.keys(priceDimensions)[0]].pricePerUnit.USD)
 }
 
 const parseCache = data => {
@@ -77,11 +77,10 @@ const parseCache = data => {
     price: parseFirstPrice(item)
   }))
 
-  return _.orderBy(items, ['cacheMemorySizeGb'], ['asc'])
-    .map(({cacheMemorySizeGb, price}) => ({
-      cacheMemorySizeGb: cacheMemorySizeGb.toString(),
-      price
-    }))
+  return _.orderBy(items, ['cacheMemorySizeGb'], ['asc']).map(({ cacheMemorySizeGb, price }) => ({
+    cacheMemorySizeGb: cacheMemorySizeGb.toString(),
+    price
+  }))
 }
 
 module.exports = {

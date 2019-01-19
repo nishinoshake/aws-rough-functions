@@ -5,7 +5,16 @@
     "invoke": "serverless invoke -l -f",
     "invoke:local": "serverless invoke local -f",
     "invoke:dev": "serverless invoke --stage dev -l  -f",
-    "invoke:production": "serverless invoke --stage production -l -f"
+    "invoke:production": "serverless invoke --stage production -l -f",
+    "format": "eslint --fix --ext .js --ignore-path .gitignore .",
+    "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js}": [
+      "eslint --fix --ext .js --ignore-path .gitignore .",
+      "git add"
+    ]
   },
   "dependencies": {
     "@slack/client": "^4.3.1",
@@ -15,11 +24,16 @@
   },
   "devDependencies": {
     "eslint": "^4.18.2",
+    "eslint-config-prettier": "^3.5.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-standard": "^3.0.1",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.15.3",
     "prettyjson": "^1.2.1",
     "serverless": "^1.36.0",
     "serverless-domain-manager": "^2.6.11"

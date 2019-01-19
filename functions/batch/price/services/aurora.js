@@ -16,8 +16,7 @@ module.exports = {
           databaseEngine: 'Aurora MySQL'
         }
       },
-      parse: priceList =>
-        parseInstances(priceList, { name: 'Aurora MySQL', index: 1, order: ['t2', 'r4'] })
+      parse: priceList => parseInstances(priceList, { name: 'Aurora MySQL', index: 1, order: ['t2', 'r4'] })
     },
     PostgreSQL: {
       params: {
@@ -27,8 +26,7 @@ module.exports = {
           databaseEngine: 'Aurora PostgreSQL'
         }
       },
-      parse: priceList =>
-        parseInstances(priceList, { name: 'Aurora PostgreSQL', index: 1, order: ['r4'] })
+      parse: priceList => parseInstances(priceList, { name: 'Aurora PostgreSQL', index: 1, order: ['r4'] })
     }
   },
   storage: {

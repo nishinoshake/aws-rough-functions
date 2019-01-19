@@ -13,7 +13,7 @@ exports.main = async (event, context, callback) => {
   try {
     const data = await fetchJson(BUCKET_NAME, `json/z/${hash}.json`)
 
-    callback(null, createResponse({body: data}))
+    callback(null, createResponse({ body: data }))
   } catch (err) {
     callback(null, createServerErrorResponse())
   }

@@ -44,51 +44,48 @@ const formatFilters = filters =>
 const getPrice = (pricing, service) =>
   new Promise((resolve, reject) => {
     const fetchPrice = (params, arr) => {
-      pricing.getProducts(
-        {...params, Filters: formatFilters(params.Filters)},
-        (err, data) => {
-          if (err) {
-            return reject(err)
-          }
-
-          const { PriceList, NextToken } = data
-          const priceLists = arr.concat(PriceList)
-
-          if (NextToken) {
-            return fetchPrice(
-              {...params, NextToken},
-              priceLists
-            )
-          } else {
-            if (IS_LOCAL) {
-              fs.writeFileSync(`${__dirname}/../../../json/${params.ServiceCode}.json`, JSON.stringify(priceLists))
-            }
-            return resolve(service.parse(priceLists))
-          }
+      pricing.getProducts({ ...params, Filters: formatFilters(params.Filters) }, (err, data) => {
+        if (err) {
+          return reject(err)
         }
-      )
+
+        const { PriceList, NextToken } = data
+        const priceLists = arr.concat(PriceList)
+
+        if (NextToken) {
+          return fetchPrice({ ...params, NextToken }, priceLists)
+        } else {
+          if (IS_LOCAL) {
+            fs.writeFileSync(`${__dirname}/../../../json/${params.ServiceCode}.json`, JSON.stringify(priceLists))
+          }
+          return resolve(service.parse(priceLists))
+        }
+      })
     }
 
     fetchPrice(service.params, [])
   })
 
-const wait = timeout => new Promise(resolve => {
-  setTimeout(() => {
-    resolve()
-  }, timeout)
-})
+const wait = timeout =>
+  new Promise(resolve => {
+    setTimeout(() => {
+      resolve()
+    }, timeout)
+  })
 
 const getPrices = async (pricing, services) => {
   const kv = separate(services)
 
-  const data = await Promise.all(kv.v.map(async (v, index) => {
-    if (v.values) {
-      return v.values
-    }
+  const data = await Promise.all(
+    kv.v.map(async (v, index) => {
+      if (v.values) {
+        return v.values
+      }
 
-    await wait(index * 300)
-    return getPrice(pricing, v)
-  }))
+      await wait(index * 300)
+      return getPrice(pricing, v)
+    })
+  )
 
   return combine(kv.k, data)
 }

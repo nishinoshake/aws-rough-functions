@@ -5,7 +5,7 @@ const { createResponse, createClientErrorResponse, createServerErrorResponse } =
 const { BUCKET_NAME } = process.env
 
 exports.main = async (event, context, callback) => {
-  const {hash, tables} = JSON.parse(event.body)
+  const { hash, tables } = JSON.parse(event.body)
   let parsedTable
 
   try {

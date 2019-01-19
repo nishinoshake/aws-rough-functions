@@ -13,8 +13,8 @@ module.exports = async () => {
   }
 
   if (IS_LOCAL) {
-    fs.writeFileSync(`${__dirname}/../../../json/fx.json`, JSON.stringify({usdjpy: parseFloat(usdjpy)}))
+    fs.writeFileSync(`${__dirname}/../../../json/fx.json`, JSON.stringify({ usdjpy: parseFloat(usdjpy) }))
   } else {
-    await uploadJson(BUCKET_NAME, 'json/fx.json', {usdjpy: parseFloat(usdjpy)})
+    await uploadJson(BUCKET_NAME, 'json/fx.json', { usdjpy: parseFloat(usdjpy) })
   }
 }
