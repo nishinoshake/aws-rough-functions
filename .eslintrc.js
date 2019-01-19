@@ -24,8 +24,7 @@ module.exports = {
     'no-new': 'off',
     'prettier/prettier': ['error', {
       'singleQuote': true,
-      'semi': false,
-      'printWidth': 120
+      'semi': false
     }]
   }
 }

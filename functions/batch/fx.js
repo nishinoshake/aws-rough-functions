@@ -10,7 +10,10 @@ exports.main = async (event, context, callback) => {
     const usdjpy = await fetchFx(FX_ENDPOINT)
 
     if (IS_LOCAL) {
-      fs.writeFileSync(`${__dirname}/../../json/fx.json`, JSON.stringify({ usdjpy }))
+      fs.writeFileSync(
+        `${__dirname}/../../json/fx.json`,
+        JSON.stringify({ usdjpy })
+      )
     } else {
       await uploadJson(BUCKET_NAME, 'json/fx.json', { usdjpy })
       await publish(SNS_PRICE_UPDATE_ARN, 'fx updated')

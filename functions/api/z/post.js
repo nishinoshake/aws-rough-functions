@@ -1,7 +1,11 @@
 const _ = require('lodash')
 const { uploadJson } = require('../../../lib/aws/s3')
 const { isValidHash } = require('../../../lib/validator')
-const { createResponse, createClientErrorResponse, createServerErrorResponse } = require('../../../lib/response')
+const {
+  createResponse,
+  createClientErrorResponse,
+  createServerErrorResponse
+} = require('../../../lib/response')
 const { BUCKET_NAME } = process.env
 
 exports.main = async (event, context, callback) => {

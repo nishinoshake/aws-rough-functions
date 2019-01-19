@@ -13,7 +13,10 @@ exports.main = async (event, context, callback) => {
     const prices = await fetchPrices(pricing, services)
 
     if (IS_LOCAL) {
-      fs.writeFileSync(`${__dirname}/../../json/price.json`, JSON.stringify(prices))
+      fs.writeFileSync(
+        `${__dirname}/../../json/price.json`,
+        JSON.stringify(prices)
+      )
     } else {
       await uploadJson(BUCKET_NAME, 'json/price.json', prices)
       await deploy('master')
