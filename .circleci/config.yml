@@ -30,7 +30,6 @@ jobs:
       - run: yarn test
       - run: yarn deploy:production
       - run: yarn invoke:production fx
-      - run: yarn invoke:production price
 
 workflows:
   version: 2
