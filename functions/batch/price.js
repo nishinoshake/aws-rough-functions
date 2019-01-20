@@ -1,8 +1,7 @@
 const fs = require('fs')
-const AWS = require('aws-sdk')
-const pricing = new AWS.Pricing({ region: 'us-east-1' })
 const services = require('../../services')
-const fetchPrices = require('../../lib/fetchPrices')
+const { fetchPrices } = require('../../lib/fetchPrices')
+const { getProducts } = require('../../lib/aws/pricing')
 const { uploadJson } = require('../../lib/aws/s3')
 const { deploy } = require('../../lib/ci/circleci')
 const { sendWarning } = require('../../lib/notification/slack')
@@ -10,7 +9,7 @@ const { BUCKET_NAME, IS_LOCAL } = process.env
 
 exports.main = async (event, context, callback) => {
   try {
-    const prices = await fetchPrices(pricing, services)
+    const prices = await fetchPrices(getProducts, services)
 
     if (IS_LOCAL) {
       fs.writeFileSync(
