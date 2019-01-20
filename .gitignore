@@ -1,5 +1,6 @@
 .DS_Store
 .serverless
 *.log
+/coverage/
 serverless.env.yml
 node_modules

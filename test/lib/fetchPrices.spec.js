@@ -184,6 +184,14 @@ describe('fetchPrices', () => {
               })
           }
         },
+        fargate: {
+          pair: {
+            values: {
+              '0.25': [0.5, 1, 2, 3],
+              '0.5': [1, 2, 3, 4, 5]
+            }
+          }
+        },
         transfer: {
           out: {
             priceRange: {
@@ -202,6 +210,12 @@ describe('fetchPrices', () => {
             { price: 0.01, instanceType: 't2.micro' },
             { price: 0.1, instanceType: 'm5.large' }
           ]
+        },
+        fargate: {
+          pair: {
+            '0.25': [0.5, 1, 2, 3],
+            '0.5': [1, 2, 3, 4, 5]
+          }
         },
         transfer: {
           out: {
