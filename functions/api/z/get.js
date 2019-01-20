@@ -1,4 +1,4 @@
-const { fetchJson } = require('../../../lib/aws/s3')
+const s3 = require('../../../lib/aws/s3')
 const { isValidHash } = require('../../../lib/validator')
 const {
   createResponse,
@@ -15,7 +15,7 @@ exports.main = async (event, context, callback) => {
   }
 
   try {
-    const data = await fetchJson(BUCKET_NAME, `json/z/${hash}.json`)
+    const data = await s3.fetchJson(BUCKET_NAME, `json/z/${hash}.json`)
 
     callback(null, createResponse({ body: data }))
   } catch (err) {

@@ -1,5 +1,5 @@
 const _ = require('lodash')
-const { uploadJson } = require('../../../lib/aws/s3')
+const s3 = require('../../../lib/aws/s3')
 const { isValidHash } = require('../../../lib/validator')
 const {
   createResponse,
@@ -25,7 +25,7 @@ exports.main = async (event, context, callback) => {
   }
 
   try {
-    await uploadJson(BUCKET_NAME, `json/z/${hash}.json`, parsedTable)
+    await s3.uploadJson(BUCKET_NAME, `json/z/${hash}.json`, parsedTable)
 
     callback(null, callback(null, createResponse()))
   } catch (err) {
