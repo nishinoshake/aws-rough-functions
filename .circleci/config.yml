@@ -7,7 +7,16 @@ jobs:
       - image: circleci/node:10-jessie-browsers
     steps:
       - checkout
-      - run: echo $SERVERLESS_ENV | base64 --decode > serverless.env.yml
+      - run:
+          name: Create AWS Credentials
+          command: |
+            mkdir ~/.aws &&
+            echo "[default]" > ~/.aws/credentials &&
+            echo "aws_access_key_id=${AWS_ACCESS_KEY_ID}" >>  ~/.aws/credentials &&
+            echo "aws_secret_access_key=${AWS_SECRET_ACCESS_KEY}" >>  ~/.aws/credentials
+      - run:
+          name: Create Env File
+          command: echo $SERVERLESS_ENV | base64 --decode > serverless.env.yml
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
