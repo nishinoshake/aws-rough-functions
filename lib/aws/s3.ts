@@ -2,7 +2,7 @@ import { S3 } from 'aws-sdk'
 
 const s3 = new S3({ region: 'ap-northeast-1' })
 
-export function fetchJson(bucketName, path) {
+export function fetchJson(bucketName: string, path: string): Promise<any> {
   return new Promise((resolve, reject) => {
     s3.getObject(
       {
@@ -20,13 +20,17 @@ export function fetchJson(bucketName, path) {
   })
 }
 
-export function uploadJson(bucketName, path, json) {
+export function uploadJson(
+  bucketName: string,
+  path: string,
+  obj: any
+): Promise<void> {
   return new Promise((resolve, reject) => {
     s3.upload(
       {
         Bucket: bucketName,
         Key: path,
-        Body: JSON.stringify(json),
+        Body: JSON.stringify(obj),
         ContentType: 'application/json',
         CacheControl: 'no-store'
       },

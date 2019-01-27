@@ -1,6 +1,6 @@
 import { IncomingWebhook } from '@slack/client'
 
-export function send(message) {
+export function send(message: string): Promise<void> {
   const url = process.env.SLACK_WEBHOOK_URL || ''
   const slack = new IncomingWebhook(url)
 
@@ -15,7 +15,7 @@ export function send(message) {
   })
 }
 
-export async function sendWarning(err) {
+export async function sendWarning(err): Promise<void> {
   console.log('***********slack called************')
   await send(`:warning: Oops\n\n${err}`)
 }

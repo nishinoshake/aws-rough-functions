@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export async function deploy(branch) {
+export async function deploy(branch: string): Promise<any> {
   const { CIRCLE_API_TOKEN, CIRCLE_BUILD_ENDPOINT } = process.env
 
   await axios.post(

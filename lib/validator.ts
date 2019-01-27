@@ -1,4 +1,4 @@
-export function isValidHash(str) {
+export function isValidHash(str: string): boolean {
   if (!str) {
     return false
   }

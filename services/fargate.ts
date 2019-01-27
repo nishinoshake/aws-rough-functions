@@ -27,7 +27,7 @@ export default {
     }
   },
   pair: {
-    values: {
+    manual: {
       '0.25': [0.5, ...range(1, 3)],
       '0.5': range(1, 5),
       '1': range(2, 9),

@@ -2,7 +2,7 @@ import { writeFileSync } from 'fs'
 import * as path from 'path'
 import set from 'lodash/set'
 
-function wait(timeout) {
+function wait(timeout: number): Promise<void> {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve()
@@ -10,17 +10,22 @@ function wait(timeout) {
   })
 }
 
-export function separate(targets) {
-  let k = []
-  let v = []
+interface SeparatedObject {
+  keys: string[]
+  values: any[]
+}
+
+export function separate(targets: any): SeparatedObject {
+  let keys = []
+  let values = []
 
   const deep = (obj, stack) => {
     Object.keys(obj).forEach(name => {
       const str = stack ? `${stack}.${name}` : name
 
-      if (obj[name].parse || obj[name].values) {
-        k.push(str)
-        v.push(obj[name])
+      if (obj[name].parse || obj[name].manual) {
+        keys.push(str)
+        values.push(obj[name])
       } else {
         deep(obj[name], str)
       }
@@ -29,10 +34,10 @@ export function separate(targets) {
 
   deep(targets, '')
 
-  return { k, v }
+  return { keys, values }
 }
 
-export function combine(keys, values) {
+export function combine(keys: string[], values: any[]): any {
   let obj = {}
 
   keys.forEach((key, i) => {
@@ -42,7 +47,13 @@ export function combine(keys, values) {
   return obj
 }
 
-export function formatFilters(filters) {
+interface FormattedPriceFilter {
+  Field: string
+  Type: string
+  Value: string
+}
+
+export function formatFilters(filters): FormattedPriceFilter[] {
   return Object.keys(filters).map(name => ({
     Field: name,
     Type: 'TERM_MATCH',
@@ -89,16 +100,16 @@ export async function fetchPrices(getProducts, services) {
   const kv = separate(services)
 
   const data = await Promise.all(
-    kv.v.map(async (v, index) => {
-      if (v.values) {
-        return v.values
+    kv.values.map(async (value, index) => {
+      if (value.manual) {
+        return value.manual
       }
 
       await wait(index * 500)
 
-      return fetchPrice(getProducts, v)
+      return fetchPrice(getProducts, value)
     })
   )
 
-  return combine(kv.k, data)
+  return combine(kv.keys, data)
 }

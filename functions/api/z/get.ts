@@ -1,3 +1,4 @@
+import { APIGatewayProxyEvent } from 'aws-lambda'
 import * as s3 from '../../../lib/aws/s3'
 import { isValidHash } from '../../../lib/validator'
 import {
@@ -6,7 +7,7 @@ import {
   createServerErrorResponse
 } from '../../../lib/response'
 
-export async function main(event) {
+export async function main(event: APIGatewayProxyEvent) {
   const { BUCKET_NAME } = process.env
   const { hash } = event.pathParameters
 
@@ -15,9 +16,9 @@ export async function main(event) {
   }
 
   try {
-    const data = await s3.fetchJson(BUCKET_NAME, `json/z/${hash}.json`)
+    const body = await s3.fetchJson(BUCKET_NAME, `json/z/${hash}.json`)
 
-    return createResponse({ body: data })
+    return createResponse({ body })
   } catch (err) {
     return createServerErrorResponse()
   }

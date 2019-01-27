@@ -11,7 +11,7 @@ import {
 describe('fetchPrices', () => {
   describe('separate', () => {
     test('設定ファイルのキーと値を分割できる', () => {
-      // parseの関数か手入力のvaluesに遭遇するまで掘って値を返す
+      // parseの関数か手入力のmanualに遭遇するまで掘って値を返す
       const targets = {
         instance: {
           MySQL: {
@@ -32,19 +32,19 @@ describe('fetchPrices', () => {
           }
         },
         manual: {
-          values: {
+          manual: {
             hoge: 'fuga'
           }
         }
       }
       const expected = {
-        k: [
+        keys: [
           'instance.MySQL',
           'instance.PostgreSQL',
           'storage.gp2.price',
           'manual'
         ],
-        v: [
+        values: [
           {
             params: { name: 'MySQL' },
             parse: 'Function'
@@ -58,7 +58,7 @@ describe('fetchPrices', () => {
             parse: 'Function'
           },
           {
-            values: {
+            manual: {
               hoge: 'fuga'
             }
           }
@@ -186,7 +186,7 @@ describe('fetchPrices', () => {
         },
         fargate: {
           pair: {
-            values: {
+            manual: {
               '0.25': [0.5, 1, 2, 3],
               '0.5': [1, 2, 3, 4, 5]
             }
