@@ -1,5 +1,6 @@
 .DS_Store
 .serverless
+.webpack
 *.log
 /coverage/
 serverless.env.yml

@@ -18,12 +18,15 @@
     ]
   },
   "dependencies": {
-    "@slack/client": "^4.3.1",
+    "@slack/client": "^4.8.0",
     "aws-sdk": "^2.209.0",
     "axios": "^0.18.0",
     "lodash": "^4.17.5"
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.17",
+    "@types/node": "^10.12.18",
+    "@types/ws": "^6.0.1",
     "eslint": "^4.18.2",
     "eslint-config-prettier": "^3.5.0",
     "eslint-config-standard": "^11.0.0",
@@ -38,6 +41,11 @@
     "prettier": "^1.15.3",
     "prettyjson": "^1.2.1",
     "serverless": "^1.36.0",
-    "serverless-domain-manager": "^2.6.11"
+    "serverless-domain-manager": "^2.6.11",
+    "serverless-webpack": "^5.2.0",
+    "source-map-support": "^0.5.10",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.4",
+    "webpack": "^4.29.0"
   }
 }

@@ -35,6 +35,7 @@ provider:
         - ${self:provider.environment.SNS_PRICE_UPDATE_ARN}
 plugins:
   - serverless-domain-manager
+  - serverless-webpack
 custom:
   defaultProfile: default
   stage: "${opt:stage, self:provider.stage}"
