@@ -50,6 +50,11 @@ custom:
   production:
     domain: aws-api.noplan.cc
     priceScheduleEnabled: true
+  webpack:
+    includeModules:
+      forceExclude:
+        - aws-sdk
+
 functions:
   fx:
     handler: src/functions/batch/fx.main

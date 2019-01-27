@@ -32,7 +32,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.LOCAL_PROJECT_DIR': slsw.lib.webpack.isLocal
         ? JSON.stringify(__dirname)
-        : ''
+        : JSON.stringify('/tmp')
     })
   ]
 }
