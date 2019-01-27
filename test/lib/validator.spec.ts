@@ -1,4 +1,4 @@
-const { isValidHash } = require('../../lib/validator')
+import { isValidHash } from '../../lib/validator'
 
 describe('validator', () => {
   describe('isValidHash', () => {

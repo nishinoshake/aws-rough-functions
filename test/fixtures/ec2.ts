@@ -1,8 +1,8 @@
-module.exports = [
+export default [
   {
     product: {
       attributes: {
-        cacheMemorySizeGb: '1.6'
+        instanceType: 'm5.large'
       }
     },
     terms: {
@@ -11,7 +11,7 @@ module.exports = [
           priceDimensions: {
             sku: {
               pricePerUnit: {
-                USD: '0.05'
+                USD: '0.1'
               }
             }
           }
@@ -22,7 +22,7 @@ module.exports = [
   {
     product: {
       attributes: {
-        cacheMemorySizeGb: '0.5'
+        instanceType: 't2.micro'
       }
     },
     terms: {
@@ -31,7 +31,7 @@ module.exports = [
           priceDimensions: {
             sku: {
               pricePerUnit: {
-                USD: '0.03'
+                USD: '0.01'
               }
             }
           }

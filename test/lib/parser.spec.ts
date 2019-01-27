@@ -1,6 +1,6 @@
-const slack = require('../../lib/notification/slack')
-const fixtures = require('../fixtures')
-const {
+import * as slack from '../../lib/notification/slack'
+import * as fixtures from '../fixtures'
+import {
   parseInstanceType,
   parseInstances,
   parseRange,
@@ -8,10 +8,10 @@ const {
   parsePrices,
   parseFirstPrice,
   parseCache
-} = require('../../lib/parser')
+} from '../../lib/parser'
 
-jest.mock('../../lib/notification/slack')
-slack.sendWarning.mockResolvedValue('')
+jest.mock('../../lib/notification/slack');
+(slack.sendWarning as any).mockResolvedValue('')
 
 describe('parser', () => {
   describe('parseInstanceType', () => {

@@ -1,8 +1,8 @@
-const {
+import {
   createResponse,
   createClientErrorResponse,
   createServerErrorResponse
-} = require('../../lib/response')
+} from '../../lib/response'
 
 describe('response', () => {
   describe('createResponse', () => {

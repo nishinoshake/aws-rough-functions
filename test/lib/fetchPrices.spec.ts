@@ -1,12 +1,12 @@
-const fixtures = require('../fixtures')
-const { parseInstances, parseRange } = require('../../lib/parser')
-const {
+import * as fixtures from '../fixtures'
+import { parseInstances, parseRange } from '../../lib/parser'
+import {
   separate,
   combine,
   formatFilters,
   fetchPrice,
   fetchPrices
-} = require('../../lib/fetchPrices')
+} from '../../lib/fetchPrices'
 
 describe('fetchPrices', () => {
   describe('separate', () => {

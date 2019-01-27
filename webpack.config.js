@@ -13,7 +13,7 @@ module.exports = {
   entry: entries,
   devtool: 'source-map',
   resolve: {
-    extensions: ['.js', '.json', '.ts']
+    extensions: ['.ts', '.js', '.json']
   },
   output: {
     libraryTarget: 'commonjs',

@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.17",
+    "@types/jest": "^23.3.13",
     "@types/node": "^10.12.18",
     "@types/ws": "^6.0.1",
     "eslint": "^4.18.2",
@@ -44,6 +45,7 @@
     "serverless-domain-manager": "^2.6.11",
     "serverless-webpack": "^5.2.0",
     "source-map-support": "^0.5.10",
+    "ts-jest": "^23.10.5",
     "ts-loader": "^5.3.3",
     "typescript": "^3.2.4",
     "webpack": "^4.29.0"
