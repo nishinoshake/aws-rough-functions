@@ -1,9 +1,5 @@
 import * as fixtures from 'test/fixtures'
-import * as slack from '../../../src/lib/notification/slack'
 import { parseInstances } from '@/lib/parser'
-
-jest.mock('../../../src/lib/notification/slack')
-;(slack.sendWarning as any).mockResolvedValue()
 
 describe('parseInstances', () => {
   test('インスタンスをパースして指定した順番にソートできる', () => {

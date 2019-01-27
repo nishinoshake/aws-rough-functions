@@ -28,7 +28,7 @@ export async function main(event: APIGatewayProxyEvent) {
     await s3.uploadJson(BUCKET_NAME, `json/z/${hash}.json`, parsedTable)
 
     return createResponse()
-  } catch (err) {
+  } catch (e) {
     return createServerErrorResponse()
   }
 }

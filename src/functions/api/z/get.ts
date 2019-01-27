@@ -19,7 +19,7 @@ export async function main(event: APIGatewayProxyEvent) {
     const body = await s3.fetchJson(BUCKET_NAME, `json/z/${hash}.json`)
 
     return createResponse({ body })
-  } catch (err) {
+  } catch (e) {
     return createServerErrorResponse()
   }
 }

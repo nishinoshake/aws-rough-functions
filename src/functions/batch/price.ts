@@ -26,9 +26,9 @@ export async function main() {
     }
 
     return 'success'
-  } catch (err) {
-    await slack.sendWarning(err)
+  } catch (e) {
+    await slack.sendWarning(e)
 
-    throw new Error(err)
+    throw new Error(e)
   }
 }

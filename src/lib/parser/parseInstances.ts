@@ -1,6 +1,5 @@
 import sortBy from 'lodash/sortBy'
 import flatten from 'lodash/flatten'
-import * as slack from '@/lib/notification/slack'
 import { InstanceOptions, ParsedInstance, PriceItem } from '@/lib/types'
 import { parseFirstPrice, parseInstanceType } from './index'
 
@@ -29,24 +28,14 @@ export function parseInstances(
   // 未知のインスタンス
   prefixes.forEach(prefix => {
     if (!options.order.includes(prefix)) {
-      // tslint:disable-next-line:no-floating-promises
-      slack.sendWarning(
-        `${options.name} => 未知のインスタンスを発見 : ${prefix}`
-      )
-      throw new Error('未知のインスタンスを発見')
+      throw new Error(`${options.name} => 未知のインスタンスを発見 : ${prefix}`)
     }
   })
 
   // 過去のインスタンス
   options.order.forEach(prefix => {
     if (!prefixes.includes(prefix)) {
-      // tslint:disable-next-line:no-floating-promises
-      slack.sendWarning(
-        `${
-          options.name
-        } => このインスタンスは過去のものになったみたいです : ${prefix}`
-      )
-      throw new Error('このインスタンスは過去のものになったみたいです')
+      throw new Error(`${options.name} => 過去のインスタンスを発見 : ${prefix}`)
     }
   })
 
