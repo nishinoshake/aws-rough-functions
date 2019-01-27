@@ -1,6 +1,8 @@
 export default [
   {
+    serviceCode: 'AmazonApiGateway',
     product: {
+      productFamily: '',
       attributes: {
         cacheMemorySizeGb: '1.6'
       }
@@ -20,7 +22,9 @@ export default [
     }
   },
   {
+    serviceCode: 'AmazonApiGateway',
     product: {
+      productFamily: '',
       attributes: {
         cacheMemorySizeGb: '0.5'
       }

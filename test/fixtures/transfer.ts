@@ -1,5 +1,10 @@
 export default [
   {
+    serviceCode: 'AmazonEC2',
+    product: {
+      productFamily: '',
+      attributes: {}
+    },
     terms: {
       OnDemand: {
         sku: {

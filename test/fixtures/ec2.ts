@@ -1,6 +1,8 @@
 export default [
   {
+    serviceCode: 'AmazonEC2',
     product: {
+      productFamily: '',
       attributes: {
         instanceType: 'm5.large'
       }
@@ -20,7 +22,9 @@ export default [
     }
   },
   {
+    serviceCode: 'AmazonEC2',
     product: {
+      productFamily: '',
       attributes: {
         instanceType: 't2.micro'
       }
