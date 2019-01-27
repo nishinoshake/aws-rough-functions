@@ -1,4 +1,6 @@
-export function parsePriceDimensions(priceItem: any): any {
+import { PriceItem } from '../types'
+
+export function parsePriceDimensions(priceItem: PriceItem): any {
   const {
     terms: { OnDemand }
   } = priceItem

@@ -3,20 +3,10 @@ import flatten from 'lodash/flatten'
 import * as slack from '../notification/slack'
 import { parseInstanceType } from './parseInstanceType'
 import { parseFirstPrice } from './parseFirstPrice'
-
-interface InstanceOptions {
-  name: string
-  index: number
-  order: string[]
-}
-
-interface ParsedInstance {
-  price: number
-  instanceType: string
-}
+import { InstanceOptions, ParsedInstance, PriceItem } from '../types'
 
 export function parseInstances(
-  priceList: any,
+  priceList: PriceItem[],
   options: InstanceOptions
 ): ParsedInstance[] {
   let obj = {}

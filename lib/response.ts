@@ -1,14 +1,10 @@
-interface ResponseInterafce {
-  statusCode: number
-  headers: any
-  body: string
-}
+import { ApiResponse } from './types'
 
 export function createResponse({
   statusCode = 200,
   headers = {},
   body = {}
-} = {}): ResponseInterafce {
+} = {}): ApiResponse {
   return {
     statusCode: statusCode,
     headers: {
@@ -23,7 +19,7 @@ export function createClientErrorResponse({
   statusCode = 400,
   headers = {},
   message = 'invalid request'
-} = {}): ResponseInterafce {
+} = {}): ApiResponse {
   return createResponse({ statusCode, headers, body: { message } })
 }
 
@@ -31,6 +27,6 @@ export function createServerErrorResponse({
   statusCode = 503,
   headers = {},
   message = 'oops...'
-} = {}): ResponseInterafce {
+} = {}): ApiResponse {
   return createResponse({ statusCode, headers, body: { message } })
 }

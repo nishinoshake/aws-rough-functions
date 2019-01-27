@@ -1,4 +1,5 @@
 import set from 'lodash/set'
+import { PriceFilter, SeparatedObject } from '../types'
 
 export function wait(timeout: number): Promise<void> {
   return new Promise(resolve => {
@@ -6,11 +7,6 @@ export function wait(timeout: number): Promise<void> {
       resolve()
     }, timeout)
   })
-}
-
-interface SeparatedObject {
-  keys: string[]
-  values: any[]
 }
 
 export function separate(targets: any): SeparatedObject {
@@ -45,13 +41,7 @@ export function combine(keys: string[], values: any[]): any {
   return obj
 }
 
-interface FormattedPriceFilter {
-  Field: string
-  Type: string
-  Value: string
-}
-
-export function formatFilters(filters): FormattedPriceFilter[] {
+export function formatFilters(filters: any): PriceFilter[] {
   return Object.keys(filters).map(name => ({
     Field: name,
     Type: 'TERM_MATCH',

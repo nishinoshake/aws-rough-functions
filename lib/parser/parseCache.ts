@@ -1,12 +1,8 @@
 import orderBy from 'lodash/orderBy'
 import { parseFirstPrice } from './parseFirstPrice'
+import { ApiGatewayCache, PriceItem } from '../types'
 
-interface ApiGatewayCache {
-  cacheMemorySizeGb: string
-  price: number
-}
-
-export function parseCache(priceList: any): ApiGatewayCache[] {
+export function parseCache(priceList: PriceItem[]): ApiGatewayCache[] {
   const formattedPriceList = priceList.map(priceItem => ({
     cacheMemorySizeGb: parseFloat(
       priceItem.product.attributes.cacheMemorySizeGb
