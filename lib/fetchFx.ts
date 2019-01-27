@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export default async function (url) {
+export default async function(url) {
   const res = await axios.get(url)
   const usdjpy = parseFloat(res.data.JPY)
 

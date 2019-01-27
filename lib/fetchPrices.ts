@@ -2,7 +2,7 @@ import { writeFileSync } from 'fs'
 import * as path from 'path'
 import set from 'lodash/set'
 
-function wait (timeout) {
+function wait(timeout) {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve()
@@ -32,7 +32,7 @@ export function separate(targets) {
   return { k, v }
 }
 
-export function combine (keys, values) {
+export function combine(keys, values) {
   let obj = {}
 
   keys.forEach((key, i) => {
@@ -60,14 +60,17 @@ export function fetchPrice(getProducts, service) {
           ...params,
           Filters: formatFilters(params.Filters)
         })
-  
+
         const priceLists = arr.concat(PriceList)
-  
+
         if (NextToken) {
           return fetchPrice({ ...params, NextToken }, priceLists)
         } else {
           if (IS_LOCAL) {
-            const jsonPath = path.resolve(process.env.LOCAL_PROJECT_DIR, `json/${params.ServiceCode}.json`)
+            const jsonPath = path.resolve(
+              process.env.LOCAL_PROJECT_DIR,
+              `json/${params.ServiceCode}.json`
+            )
 
             writeFileSync(jsonPath, JSON.stringify(priceLists))
           }
@@ -77,7 +80,7 @@ export function fetchPrice(getProducts, service) {
         return reject(e)
       }
     }
-  
+
     fetchPrice(service.params, [])
   })
 }

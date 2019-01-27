@@ -29,6 +29,7 @@ export function parseInstances(data, options) {
   // 未知のインスタンス
   prefixes.forEach(prefix => {
     if (!options.order.includes(prefix)) {
+      // tslint:disable-next-line:no-floating-promises
       slack.sendWarning(
         `${options.name} => 未知のインスタンスを発見 : ${prefix}`
       )
@@ -39,6 +40,7 @@ export function parseInstances(data, options) {
   // 過去のインスタンス
   options.order.forEach(prefix => {
     if (!prefixes.includes(prefix)) {
+      // tslint:disable-next-line:no-floating-promises
       slack.sendWarning(
         `${
           options.name

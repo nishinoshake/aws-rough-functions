@@ -20,7 +20,6 @@ export function fetchJson(bucketName, path) {
   })
 }
 
-
 export function uploadJson(bucketName, path, json) {
   return new Promise((resolve, reject) => {
     s3.upload(

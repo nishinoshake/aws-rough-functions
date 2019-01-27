@@ -10,8 +10,8 @@ import {
   parseCache
 } from '../../lib/parser'
 
-jest.mock('../../lib/notification/slack');
-(slack.sendWarning as any).mockResolvedValue('')
+jest.mock('../../lib/notification/slack')
+;(slack.sendWarning as any).mockResolvedValue('')
 
 describe('parser', () => {
   describe('parseInstanceType', () => {

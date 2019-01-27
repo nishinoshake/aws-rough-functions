@@ -12,10 +12,12 @@ export async function main() {
     const usdjpy = await fetchFx(FX_ENDPOINT)
 
     if (IS_LOCAL) {
-      const jsonPath = path.resolve(process.env.LOCAL_PROJECT_DIR, `json/fx.json`)
-
-      writeFileSync(jsonPath, JSON.stringify({ usdjpy })
+      const jsonPath = path.resolve(
+        process.env.LOCAL_PROJECT_DIR,
+        `json/fx.json`
       )
+
+      writeFileSync(jsonPath, JSON.stringify({ usdjpy }))
     } else {
       await s3.uploadJson(BUCKET_NAME, 'json/fx.json', { usdjpy })
       await sns.publish(SNS_PRICE_UPDATE_ARN, 'fx updated')

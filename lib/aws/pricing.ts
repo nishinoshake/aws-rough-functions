@@ -2,7 +2,7 @@ import { Pricing } from 'aws-sdk'
 
 const pricing = new Pricing({ region: 'us-east-1' })
 
-export function describeServices (ServiceCode) {
+export function describeServices(ServiceCode) {
   return new Promise((resolve, reject) => {
     pricing.describeServices({ ServiceCode }, (err, data) => {
       if (err) {
@@ -13,7 +13,6 @@ export function describeServices (ServiceCode) {
     })
   })
 }
-
 
 export function getAttributeValues(ServiceCode, AttributeName) {
   return new Promise((resolve, reject) => {
@@ -26,7 +25,6 @@ export function getAttributeValues(ServiceCode, AttributeName) {
     })
   })
 }
-
 
 export function getProducts(params) {
   return new Promise((resolve, reject) => {

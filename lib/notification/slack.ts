@@ -15,7 +15,7 @@ export function send(message) {
   })
 }
 
-export async function sendWarning (err) {
+export async function sendWarning(err) {
   console.log('***********slack called************')
   await send(`:warning: Oops\n\n${err}`)
 }

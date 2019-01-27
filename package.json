@@ -7,13 +7,13 @@
     "invoke:dev": "serverless invoke --stage dev -l  -f",
     "invoke:production": "serverless invoke --stage production -l -f",
     "test": "jest",
-    "format": "eslint --fix --ext .js --ignore-path .gitignore .",
-    "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "format": "tslint -p ./tsconfig.json --fix",
+    "lint": "tslint -p ./tsconfig.json",
     "precommit": "lint-staged"
   },
   "lint-staged": {
     "*.{js}": [
-      "eslint --fix --ext .js --ignore-path .gitignore .",
+      "tslint -p ./tsconfig.json --fix",
       "git add"
     ]
   },
@@ -28,18 +28,12 @@
     "@types/jest": "^23.3.13",
     "@types/node": "^10.12.18",
     "@types/ws": "^6.0.1",
-    "eslint": "^4.18.2",
-    "eslint-config-prettier": "^3.5.0",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^3.0.1",
+    "@typescript-eslint/parser": "^1.1.0",
+    "add": "^2.0.6",
     "husky": "^1.3.1",
     "jest": "^23.6.0",
     "lint-staged": "^8.1.0",
-    "prettier": "^1.15.3",
+    "prettier": "^1.16.1",
     "prettyjson": "^1.2.1",
     "serverless": "^1.36.0",
     "serverless-domain-manager": "^2.6.11",
@@ -47,7 +41,12 @@
     "source-map-support": "^0.5.10",
     "ts-jest": "^23.10.5",
     "ts-loader": "^5.3.3",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.2.4",
-    "webpack": "^4.29.0"
+    "webpack": "^4.29.0",
+    "yarn": "^1.13.0"
   }
 }

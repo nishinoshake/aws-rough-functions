@@ -14,7 +14,10 @@ export async function main() {
     const prices = await fetchPrices(pricing.getProducts, services)
 
     if (IS_LOCAL) {
-      const jsonPath = path.resolve(process.env.LOCAL_PROJECT_DIR, `json/price.json`)
+      const jsonPath = path.resolve(
+        process.env.LOCAL_PROJECT_DIR,
+        `json/price.json`
+      )
 
       writeFileSync(jsonPath, JSON.stringify(prices))
     } else {
