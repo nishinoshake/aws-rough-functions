@@ -1,6 +1,6 @@
 import { writeFileSync } from 'fs'
 import * as path from 'path'
-import fetchFx from '../../lib/fetchFx'
+import fetchFx from '../../lib/fx/fetchFx'
 import * as sns from '../../lib/aws/sns'
 import * as s3 from '../../lib/aws/s3'
 import * as slack from '../../lib/notification/slack'

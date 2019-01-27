@@ -1,7 +1,7 @@
 import { writeFileSync } from 'fs'
 import * as path from 'path'
 import * as services from '../../services'
-import { fetchPrices } from '../../lib/fetchPrices'
+import { fetchPrices } from '../../lib/price/fetchPrices'
 import * as pricing from '../../lib/aws/pricing'
 import * as s3 from '../../lib/aws/s3'
 import * as circleci from '../../lib/ci/circleci'

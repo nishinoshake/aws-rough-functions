@@ -1,12 +1,13 @@
 import * as fixtures from '../fixtures'
-import { parseInstances, parseRange } from '../../lib/parser'
+import { parseInstances } from '../../lib/parser/parseInstances'
+import { parseRange } from '../../lib/parser/parseRange'
 import {
   separate,
   combine,
   formatFilters,
   fetchPrice,
   fetchPrices
-} from '../../lib/fetchPrices'
+} from '../../lib/price/fetchPrices'
 
 describe('fetchPrices', () => {
   describe('separate', () => {
