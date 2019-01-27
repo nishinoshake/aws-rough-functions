@@ -1,7 +1,6 @@
-import * as fixtures from '../../fixtures'
-import { parseInstances } from '../../../lib/parser/parseInstances'
-import { parseRange } from '../../../lib/parser/parseRange'
-import { fetchPrices } from '../../../lib/price/fetchPrices'
+import * as fixtures from 'test/fixtures'
+import { parseInstances, parseRange } from '@/lib/parser'
+import { fetchPrices } from '@/lib/price/fetchPrices'
 
 describe('fetchPrices', () => {
   test('全サービスの料金を取得できる', async () => {

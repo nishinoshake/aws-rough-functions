@@ -1,4 +1,4 @@
-import { isValidHash } from '../../lib/validator'
+import { isValidHash } from '@/lib/validator'
 
 describe('validator', () => {
   describe('isValidHash', () => {

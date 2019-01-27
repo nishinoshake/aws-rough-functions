@@ -1,5 +1,5 @@
-import * as fixtures from '../../fixtures'
-import { parseFirstPrice } from '../../../lib/parser'
+import * as fixtures from 'test/fixtures'
+import { parseFirstPrice } from '@/lib/parser'
 
 describe('parseFirstPrice', () => {
   test('skuの最初の料金をパースできる', () => {

@@ -1,5 +1,5 @@
-import * as fixtures from '../../fixtures'
-import { parseRange } from '../../../lib/parser'
+import * as fixtures from 'test/fixtures'
+import { parseRange } from '@/lib/parser'
 
 describe('parseRange', () => {
   test('料金のレンジを昇順でソートして取得できる', () => {

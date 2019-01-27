@@ -1,8 +1,8 @@
-import * as fixtures from '../../fixtures'
-import * as slack from '../../../lib/notification/slack'
-import { parseInstances } from '../../../lib/parser'
+import * as fixtures from 'test/fixtures'
+import * as slack from '../../../src/lib/notification/slack'
+import { parseInstances } from '@/lib/parser'
 
-jest.mock('../../../lib/notification/slack')
+jest.mock('../../../src/lib/notification/slack')
 ;(slack.sendWarning as any).mockResolvedValue()
 
 describe('parseInstances', () => {

@@ -1,5 +1,5 @@
-import * as fixtures from '../../fixtures'
-import { parseCache } from '../../../lib/parser'
+import * as fixtures from 'test/fixtures'
+import { parseCache } from '@/lib/parser'
 
 describe('parseCache', () => {
   test('API Gatewayのキャッシュメモリをパースして昇順でソートして取得できる', () => {

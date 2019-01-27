@@ -1,5 +1,5 @@
-import * as fixtures from '../../fixtures'
-import { parsePriceDimensions } from '../../../lib/parser'
+import * as fixtures from 'test/fixtures'
+import { parsePriceDimensions } from '@/lib/parser'
 
 describe('parsePriceDimensions', () => {
   test('priceDimensionsをパースできる', () => {

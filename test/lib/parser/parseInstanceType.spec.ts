@@ -1,4 +1,4 @@
-import { parseInstanceType } from '../../../lib/parser'
+import { parseInstanceType } from '@/lib/parser'
 
 describe('parseInstanceType', () => {
   test('インスタンスタイプをパースできる', () => {

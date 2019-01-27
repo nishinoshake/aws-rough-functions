@@ -1,5 +1,5 @@
 import axios from 'axios'
-import fetchFx from '../../../lib/fx/fetchFx'
+import fetchFx from '@/lib/fx/fetchFx'
 
 jest.mock('axios')
 

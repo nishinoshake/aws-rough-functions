@@ -1,4 +1,4 @@
-import { separate, combine, formatFilters } from '../../../lib/price/helpers'
+import { separate, combine, formatFilters } from '@/lib/price/helpers'
 
 describe('helpers', () => {
   describe('separate', () => {

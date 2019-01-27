@@ -2,7 +2,7 @@ import {
   createResponse,
   createClientErrorResponse,
   createServerErrorResponse
-} from '../../lib/response'
+} from '@/lib/response'
 
 describe('response', () => {
   describe('createResponse', () => {

@@ -52,7 +52,7 @@ custom:
     priceScheduleEnabled: true
 functions:
   fx:
-    handler: functions/batch/fx.main
+    handler: src/functions/batch/fx.main
     memorySize: 512
     timeout: 120
     events:
@@ -60,20 +60,20 @@ functions:
           rate: cron(0 1 * * ? *)
           enables: ${self:custom.${self:custom.stage}.priceScheduleEnabled}
   price:
-    handler: functions/batch/price.main
+    handler: src/functions/batch/price.main
     memorySize: 512
     timeout: 120
     events:
       - sns: ${self:provider.environment.SNS_PRICE_UPDATE_ARN}
   getZ:
-    handler: functions/api/z/get.main
+    handler: src/functions/api/z/get.main
     events:
       - http:
           path: /z/{hash}
           method: get
           cors: true
   postZ:
-    handler: functions/api/z/post.main
+    handler: src/functions/api/z/post.main
     events:
       - http:
           path: /z

@@ -13,7 +13,10 @@ module.exports = {
   entry: entries,
   devtool: 'source-map',
   resolve: {
-    extensions: ['.ts', '.js', '.json']
+    extensions: ['.ts', '.js', '.json'],
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    }
   },
   output: {
     libraryTarget: 'commonjs',
