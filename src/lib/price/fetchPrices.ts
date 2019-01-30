@@ -10,7 +10,7 @@ export async function fetchPrices(getProducts, services) {
         return obj.manual
       }
 
-      await wait(index * 500)
+      await wait(index * 1000)
 
       return fetchPrice(getProducts, obj)
     })

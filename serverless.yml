@@ -59,7 +59,7 @@ functions:
   fx:
     handler: src/functions/batch/fx.main
     memorySize: 512
-    timeout: 120
+    timeout: 300
     events:
       - schedule:
           rate: cron(0 1 * * ? *)
@@ -67,7 +67,7 @@ functions:
   price:
     handler: src/functions/batch/price.main
     memorySize: 512
-    timeout: 120
+    timeout: 300
     events:
       - sns: ${self:provider.environment.SNS_PRICE_UPDATE_ARN}
   getZ:
