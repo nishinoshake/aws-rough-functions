@@ -21,7 +21,7 @@ export default {
         parseInstances(priceList, {
           name: 'RDS MySQL',
           index: 1,
-          order: ['t2', 'm5', 'm4', 'r4']
+          order: ['t3', 't2', 'm5', 'm4', 'r5', 'r4']
         })
     },
     MariaDB: {
@@ -36,7 +36,7 @@ export default {
         parseInstances(priceList, {
           name: 'RDS MariaDB',
           index: 1,
-          order: ['t2', 'm5', 'm4', 'r4']
+          order: ['t3', 't2', 'm5', 'm4', 'r5', 'r4']
         })
     },
     PostgreSQL: {
@@ -51,7 +51,7 @@ export default {
         parseInstances(priceList, {
           name: 'RDS PostgreSQL',
           index: 1,
-          order: ['t2', 't3', 'm5', 'm4', 'r4', 'r5']
+          order: ['t3', 't2', 'm5', 'm4', 'r5', 'r4']
         })
     }
   },
