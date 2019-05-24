@@ -25,6 +25,7 @@ export default {
           'm5a',
           'm4',
           'c5',
+          'c5n',
           'c4',
           'r5',
           'r5a',
