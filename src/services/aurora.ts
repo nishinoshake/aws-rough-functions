@@ -35,7 +35,7 @@ export default {
         parseInstances(priceList, {
           name: 'Aurora PostgreSQL',
           index: 1,
-          order: ['r4', 'r5']
+          order: ['t3', 'r4', 'r5']
         })
     }
   },
