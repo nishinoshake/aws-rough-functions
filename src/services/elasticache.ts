@@ -14,7 +14,7 @@ export default {
       return parseInstances(priceList, {
         name: 'ElastiCache',
         index: 1,
-        order: ['t2', 'm5', 'm4', 'r5', 'r4', 'r3']
+        order: ['t2', 'm5', 'm4', 'r5', 'r4']
       })
     }
   }
