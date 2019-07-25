@@ -20,6 +20,7 @@ export default {
         index: 0,
         order: [
           't3',
+          't3a',
           't2',
           'm5',
           'm5a',
