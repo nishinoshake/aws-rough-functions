@@ -46,6 +46,6 @@
     "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.2.4",
     "webpack": "^4.29.0",
-    "yarn": "^1.13.0"
+    "yarn": "^1.17.3"
   }
 }
