@@ -1,4 +1,4 @@
-import { parseFirstPrice, parsePrices } from '@/lib/parser'
+import { parseFirstPrice } from '@/lib/parser'
 
 export default {
   request: {
@@ -13,14 +13,7 @@ export default {
       parse: priceList => parseFirstPrice(priceList[0])
     },
     free: {
-      params: {
-        ServiceCode: 'AWSLambda',
-        Filters: {
-          location: 'Any',
-          group: 'AWS-Lambda-Requests'
-        }
-      },
-      parse: priceList => parseInt(parsePrices(priceList[0])[0].endRange, 10)
+      manual: 1e6
     }
   },
   memory: {
@@ -35,14 +28,7 @@ export default {
       parse: priceList => parseFirstPrice(priceList[0])
     },
     free: {
-      params: {
-        ServiceCode: 'AWSLambda',
-        Filters: {
-          location: 'Any',
-          group: 'AWS-Lambda-Duration'
-        }
-      },
-      parse: priceList => parseInt(parsePrices(priceList[0])[0].endRange, 10)
+      manual: 4e5
     }
   }
 }
