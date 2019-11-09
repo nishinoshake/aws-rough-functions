@@ -6,14 +6,18 @@ describe('fetchPrices', () => {
   test('全サービスの料金を取得できる', async () => {
     const getProducts = jest
       .fn()
-      .mockResolvedValueOnce({
-        PriceList: fixtures.ec2,
-        NextToken: null
-      })
-      .mockResolvedValueOnce({
-        PriceList: fixtures.transfer,
-        NextToken: null
-      })
+      .mockResolvedValueOnce(
+        Promise.resolve({
+          PriceList: fixtures.ec2,
+          NextToken: null
+        })
+      )
+      .mockResolvedValueOnce(
+        Promise.resolve({
+          PriceList: fixtures.transfer,
+          NextToken: null
+        })
+      )
 
     const services = {
       ec2: {
