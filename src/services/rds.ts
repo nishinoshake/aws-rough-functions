@@ -14,7 +14,8 @@ export default {
         ServiceCode: 'AmazonRDS',
         Filters: {
           ...rdsFilter,
-          databaseEngine: 'MySQL'
+          databaseEngine: 'MySQL',
+          engineCode: '2'
         }
       },
       parse: priceList =>
@@ -44,7 +45,8 @@ export default {
         ServiceCode: 'AmazonRDS',
         Filters: {
           ...rdsFilter,
-          databaseEngine: 'PostgreSQL'
+          databaseEngine: 'PostgreSQL',
+          engineCode: '14'
         }
       },
       parse: priceList =>
