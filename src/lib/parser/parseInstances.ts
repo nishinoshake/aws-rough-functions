@@ -1,5 +1,6 @@
 import sortBy from 'lodash/sortBy'
 import flatten from 'lodash/flatten'
+import uniqBy from 'lodash/uniqBy'
 import { InstanceOptions, ParsedInstance, PriceItem } from '@/lib/types'
 import { parseFirstPrice, parseInstanceType } from './index'
 
@@ -36,6 +37,14 @@ export function parseInstances(
   options.order.forEach(prefix => {
     if (!prefixes.includes(prefix)) {
       throw new Error(`${options.name} => 過去のインスタンスを発見 : ${prefix}`)
+    }
+  })
+
+  prefixes.forEach(p => {
+    const instances = obj[p]
+
+    if (instances.length !== uniqBy(instances, 'instanceType').length) {
+      throw new Error(`${options.name} => インスタンスが重複しています`)
     }
   })
 
