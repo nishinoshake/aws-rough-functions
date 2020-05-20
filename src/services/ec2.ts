@@ -22,6 +22,7 @@ export default {
           't3',
           't3a',
           't2',
+          'm6g',
           'm5',
           'm5a',
           'm5n',
