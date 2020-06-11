@@ -28,6 +28,7 @@ export default {
           'm5n',
           'm4',
           'a1',
+          'c6g',
           'c5',
           'c5n',
           'c4',
