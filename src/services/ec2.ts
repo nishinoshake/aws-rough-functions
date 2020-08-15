@@ -30,6 +30,7 @@ export default {
           'a1',
           'c6g',
           'c5',
+          'c5a',
           'c5n',
           'c4',
           'r6g',
@@ -40,7 +41,8 @@ export default {
           'p3',
           'p2',
           'g3',
-          'g3s'
+          'g3s',
+          'inf1'
         ]
       })
   }
