@@ -19,6 +19,7 @@ export default {
         name: 'EC2',
         index: 0,
         order: [
+          't4g',
           't3',
           't3a',
           't2',
