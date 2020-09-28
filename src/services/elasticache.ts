@@ -6,6 +6,7 @@ export default {
       ServiceCode: 'AmazonElastiCache',
       Filters: {
         location: 'Asia Pacific (Tokyo)',
+        locationType: 'AWS Region',
         currentGeneration: 'Yes',
         cacheEngine: 'Redis'
       }
