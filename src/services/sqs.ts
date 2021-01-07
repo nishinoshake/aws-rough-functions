@@ -1,4 +1,4 @@
-import { parseFirstPrice, parsePrices } from '@/lib/parser'
+import { parseRange, parsePrices } from '@/lib/parser'
 
 export default {
   free: {
@@ -13,7 +13,7 @@ export default {
     parse: priceList => parseInt(parsePrices(priceList[0])[0].endRange, 10)
   },
   standard: {
-    price: {
+    priceRange: {
       params: {
         ServiceCode: 'AWSQueueService',
         Filters: {
@@ -21,11 +21,11 @@ export default {
           usagetype: 'APN1-Requests-Tier1'
         }
       },
-      parse: priceList => parseFirstPrice(priceList[0])
+      parse: priceList => parseRange(priceList[0])
     }
   },
   fifo: {
-    price: {
+    priceRange: {
       params: {
         ServiceCode: 'AWSQueueService',
         Filters: {
@@ -33,7 +33,7 @@ export default {
           usagetype: 'APN1-Requests-FIFO-Tier1'
         }
       },
-      parse: priceList => parseFirstPrice(priceList[0])
+      parse: priceList => parseRange(priceList[0])
     }
   }
 }
