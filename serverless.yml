@@ -13,6 +13,9 @@ provider:
     SLACK_WEBHOOK_URL: ${file(./serverless.env.yml):SLACK_WEBHOOK_URL}
     CIRCLE_API_TOKEN: ${file(./serverless.env.yml):CIRCLE_API_TOKEN}
     CIRCLE_BUILD_ENDPOINT: ${file(./serverless.env.yml):CIRCLE_BUILD_ENDPOINT}
+    SEND_GRID_API_KEY: ${file(./serverless.env.yml):SEND_GRID_API_KEY}
+    SEND_GRID_EMAIL_FROM: ${file(./serverless.env.yml):SEND_GRID_EMAIL_FROM}
+    SEND_GRID_EMAIL_TO: ${file(./serverless.env.yml):SEND_GRID_EMAIL_TO}
   apiGateway:
     minimumCompressionSize: 512
   iamRoleStatements:
@@ -82,5 +85,12 @@ functions:
     events:
       - http:
           path: /z
+          method: post
+          cors: true
+  postContact:
+    handler: src/functions/api/contact/post.main
+    events:
+      - http:
+          path: /contact
           method: post
           cors: true
