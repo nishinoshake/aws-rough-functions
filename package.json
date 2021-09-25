@@ -21,7 +21,7 @@
     "@sendgrid/mail": "^7.4.6",
     "@slack/webhook": "^5.0.2",
     "axios": "^0.21.1",
-    "lodash": "^4.17.19"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.35",
