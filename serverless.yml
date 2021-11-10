@@ -7,7 +7,7 @@ provider:
   region: ap-northeast-1
   profile: ${opt:profile, self:custom.defaultProfile}
   environment:
-    FX_ENDPOINT: "https://api.exchangerate.host/latest?base=USD"
+    FX_ENDPOINT: "https://api.exchangerate.host"
     BUCKET_NAME: ${file(./serverless.env.yml):BUCKET_NAME}
     SNS_PRICE_UPDATE_ARN: ${file(./serverless.env.yml):SNS_PRICE_UPDATE_ARN}
     SLACK_WEBHOOK_URL: ${file(./serverless.env.yml):SLACK_WEBHOOK_URL}
