@@ -21,8 +21,8 @@
     "@sendgrid/mail": "^7.4.6",
     "@slack/webhook": "^5.0.2",
     "axios": "^0.21.1",
-    "lodash": "^4.17.21",
-    "dayjs": "^1.10.7"
+    "dayjs": "^1.10.7",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.35",
@@ -36,8 +36,8 @@
     "lint-staged": "^9.4.2",
     "prettier": "^1.19.1",
     "prettyjson": "^1.2.1",
-    "serverless": "^1.57.0",
-    "serverless-domain-manager": "^3.3.0",
+    "serverless": "^1.83.3",
+    "serverless-domain-manager": "^3.3.2",
     "serverless-webpack": "^5.3.1",
     "source-map-support": "^0.5.16",
     "ts-jest": "^24.1.0",
