@@ -45,6 +45,7 @@ export default {
           'r4',
           'p3',
           'p2',
+          'g5g',
           'g3',
           'g3s',
           'inf1',
