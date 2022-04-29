@@ -2,7 +2,7 @@ import { parseFirstPrice, parseRange } from '@/lib/parser'
 
 export default {
   metrics: {
-    price: {
+    priceRange: {
       params: {
         ServiceCode: 'AmazonCloudWatch',
         Filters: {
