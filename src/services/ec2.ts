@@ -51,7 +51,8 @@ export default {
           'g3',
           'g3s',
           'inf1',
-          'vt1'
+          'vt1',
+          'x2iezn',
         ]
       })
   }
