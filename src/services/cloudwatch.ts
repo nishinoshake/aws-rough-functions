@@ -100,7 +100,19 @@ export default {
       free: {
         manual: 5
       }
-    }
+    },
+    store: {
+      price: {
+        params: {
+          ServiceCode: 'AmazonCloudWatch',
+          Filters: {
+            location: 'Asia Pacific (Tokyo)',
+            usagetype	:	'APN1-TimedStorage-ByteHrs',
+          }
+        },
+        parse: priceList => parseFirstPrice(priceList[0])
+      }
+    },
   },
   dashboard: {
     price: {
