@@ -20,7 +20,7 @@ export default {
         parseInstances(priceList, {
           name: 'Aurora MySQL',
           index: 1,
-          order: ['t4g', 't3', 't2', 'r6g', 'r5', 'r4']
+          order: ['t4g', 't3', 't2', 'r6i', 'r6g', 'r5', 'r4']
         })
     },
     PostgreSQL: {
