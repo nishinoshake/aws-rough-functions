@@ -32,7 +32,9 @@ export default {
       '0.5': range(1, 5),
       '1': range(2, 9),
       '2': range(4, 17),
-      '4': range(8, 31)
+      '4': range(8, 31),
+      '8': range(16, 61, 4),
+      '16': range(32, 121, 8),
     }
   }
 }
