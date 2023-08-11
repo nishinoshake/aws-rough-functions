@@ -2,7 +2,7 @@ service: aws-rough-functions
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs18.x
   stage: dev
   region: ap-northeast-1
   profile: ${opt:profile, self:custom.defaultProfile}
