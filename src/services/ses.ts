@@ -1,4 +1,4 @@
-import { parseFirstPrice, parsePrices } from '@/lib/parser'
+import { parseFirstPrice } from '@/lib/parser'
 
 export default {
   send: {
@@ -13,16 +13,6 @@ export default {
           }
         },
         parse: priceList => parseFirstPrice(priceList[0])
-      },
-      free: {
-        params: {
-          ServiceCode: 'AmazonSES',
-          Filters: {
-            usagetype: 'Global-Recipients-EC2',
-            group: 'SES-MonthlyFree-OutgoingEmail'
-          }
-        },
-        parse: priceList => parseInt(parsePrices(priceList[0])[0].endRange, 10)
       }
     },
     general: {
@@ -63,16 +53,6 @@ export default {
           }
         },
         parse: priceList => parseFirstPrice(priceList[0])
-      },
-      free: {
-        params: {
-          ServiceCode: 'AmazonSES',
-          Filters: {
-            usagetype: 'Global-Message',
-            group: 'SES-MonthlyFree-IncomingEmail'
-          }
-        },
-        parse: priceList => parseInt(parsePrices(priceList[0])[0].endRange, 10)
       }
     },
     chunk: {
