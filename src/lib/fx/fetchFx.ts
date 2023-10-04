@@ -8,7 +8,7 @@ export default async function(endpoint: string): Promise<number> {
   const usdjpy = Math.round(parseFloat(res.data.quotes.USDJPY) * 1000) / 1000
 
   // 明らかにおかしい為替じゃないかだけ確認
-  if (!usdjpy || usdjpy < 50 || usdjpy > 150) {
+  if (!usdjpy || usdjpy < 50 || usdjpy > 300) {
     throw new Error(`為替の値がなんだかおかしいです : ${usdjpy}`)
   }
 
