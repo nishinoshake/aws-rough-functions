@@ -59,6 +59,7 @@ export default {
           'g3s',
           'inf1',
           'vt1',
+          'hpc7g',
           'x2iezn',
           'u-3tb1',
           'u-6tb1',
