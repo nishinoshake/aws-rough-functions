@@ -22,7 +22,7 @@ export default {
         parseInstances(priceList, {
           name: 'RDS MySQL',
           index: 1,
-          order: ['t4g', 't3', 'm7g', 'm6g', 'm6i', 'm6in', 'm5', 'r7g', 'r6g', 'r6i', 'r6in', 'r5', 'r5b']
+          order: ['t4g', 't3', 'm7g', 'm7i', 'm6g', 'm6i', 'm6in', 'm5', 'r7g', 'r7i', 'r6g', 'r6i', 'r6in', 'r5', 'r5b']
         })
     },
     MariaDB: {
@@ -37,7 +37,7 @@ export default {
         parseInstances(priceList, {
           name: 'RDS MariaDB',
           index: 1,
-          order: ['t4g', 't3', 'm7g', 'm6g', 'm6i', 'm6in', 'm5', 'r7g', 'r6g', 'r6i', 'r6in', 'r5', 'r5b']
+          order: ['t4g', 't3', 'm7g', 'm7i', 'm6g', 'm6i', 'm6in', 'm5', 'r7g', 'r7i', 'r6g', 'r6i', 'r6in', 'r5', 'r5b']
         })
     },
     PostgreSQL: {
@@ -53,7 +53,7 @@ export default {
         parseInstances(priceList, {
           name: 'RDS PostgreSQL',
           index: 1,
-          order: ['t4g', 't3', 'm7g', 'm6g', 'm6i', 'm6in', 'm5', 'r7g', 'r6g', 'r6i', 'r6in', 'r5b', 'r5']
+          order: ['t4g', 't3', 'm7g', 'm7i', 'm6g', 'm6i', 'm6in', 'm5', 'r7g', 'r7i', 'r6g', 'r6i', 'r6in', 'r5b', 'r5']
         })
     }
   },
