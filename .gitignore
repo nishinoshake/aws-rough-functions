@@ -3,5 +3,4 @@
 .webpack
 *.log
 /coverage/
-serverless.env.yml
 node_modules
