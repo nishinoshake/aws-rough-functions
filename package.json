@@ -48,8 +48,5 @@
     "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.7.2",
     "webpack": "^4.41.2"
-  },
-  "volta": {
-    "node": "12.22.12"
   }
 }

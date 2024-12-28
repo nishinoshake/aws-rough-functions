@@ -20,7 +20,7 @@ export default {
         parseInstances(priceList, {
           name: 'Aurora MySQL',
           index: 1,
-          order: ['t4g', 't3', 't2', 'r7g', 'r7i', 'r6g', 'r6i', 'r5', 'r4']
+          order: ['t4g', 't3', 't2', 'r7g', 'r6i', 'r6g', 'r5', 'r4']
         })
     },
     PostgreSQL: {
@@ -35,7 +35,7 @@ export default {
         parseInstances(priceList, {
           name: 'Aurora PostgreSQL',
           index: 1,
-          order: ['t4g', 't3', 'r7g', 'r7i', 'r6g', 'r6i', 'r5', 'r4']
+          order: ['t4g', 't3', 'r7g', 'r6g', 'r6i', 'r5', 'r4']
         })
     }
   },

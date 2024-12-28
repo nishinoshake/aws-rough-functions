@@ -50,7 +50,6 @@ export default {
           'c5a',
           'c5n',
           'c4',
-          'r8g',
           'r7a',
           'r7g',
           'r7i',
