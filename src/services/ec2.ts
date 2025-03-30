@@ -36,6 +36,7 @@ export default {
           'm5n',
           'm5zn',
           'm4',
+          'c8g',
           'c7a',
           'c7gn',
           'c7g',
