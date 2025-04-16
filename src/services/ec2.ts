@@ -23,6 +23,7 @@ export default {
           't3',
           't3a',
           't2',
+          'm8g',
           'm7a',
           'm7g',
           'm7i',
