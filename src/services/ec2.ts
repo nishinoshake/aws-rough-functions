@@ -77,9 +77,7 @@ export default {
           'hpc7g',
           'x2iezn',
           'u-3tb1',
-          'u-6tb1',
-          'u-9tb1',
-          'u-12tb1'
+          'u-6tb1'
         ]
       })
   }
