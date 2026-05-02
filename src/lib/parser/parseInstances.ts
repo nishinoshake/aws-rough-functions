@@ -27,18 +27,33 @@ export function parseInstances(
   const prefixes = Object.keys(obj)
 
   // 未知のインスタンス
-  prefixes.forEach(prefix => {
-    if (!options.order.includes(prefix)) {
-      throw new Error(`${options.name} => 未知のインスタンスを発見 : ${prefix}`)
-    }
-  })
+  const unknownPrefixes = prefixes.filter(
+    prefix => !options.order.includes(prefix)
+  )
 
   // 過去のインスタンス
-  options.order.forEach(prefix => {
-    if (!prefixes.includes(prefix)) {
-      throw new Error(`${options.name} => 過去のインスタンスを発見 : ${prefix}`)
-    }
-  })
+  const pastPrefixes = options.order.filter(
+    prefix => !prefixes.includes(prefix)
+  )
+
+  if (unknownPrefixes.length > 0 || pastPrefixes.length > 0) {
+    throw new Error(
+      [
+        unknownPrefixes.length > 0
+          ? `${
+              options.name
+            } => 未知のインスタンスを発見 : ${unknownPrefixes.join('/')}`
+          : null,
+        pastPrefixes.length > 0
+          ? `${options.name} => 過去のインスタンスを発見 : ${pastPrefixes.join(
+              '/'
+            )}`
+          : null
+      ]
+        .filter(message => message)
+        .join('\n')
+    )
+  }
 
   prefixes.forEach(p => {
     const instances = obj[p]
